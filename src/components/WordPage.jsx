@@ -1,12 +1,16 @@
 import React from "react";
+import { WordCredits } from "./WordCredits";
+import { WordMeaning } from "./WordMeaning";
+import { WordPhonetic } from "./WordPhonetic";
+import { WordTitle } from "./WordTitle";
 
 export const WordPage = ({ word }) => {
     return (
         <div>
-            <div>
-                <h1>Word Page</h1>
-            </div>
-
+            <WordTitle/>
+            <WordMeaning/>
+            <WordPhonetic/>
+            <WordCredits/>
         </div>
     )
 };
