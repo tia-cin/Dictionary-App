@@ -4,7 +4,7 @@ export const WordPage = ({ word }) => {
     return (
         <div>
             <div>
-                <h1>{word.word}</h1>
+                <h1>Word Page</h1>
             </div>
 
         </div>
