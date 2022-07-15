@@ -1,5 +1,5 @@
 import { Footer } from './Footer';
-import { Navbar } from './Navbar';
+import { Navbar } from '../Navbar';
 import { CardsContainer } from './CardsContainer';
 
 export const Home = () => {
