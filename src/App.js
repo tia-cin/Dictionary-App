@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { Home } from './components/Home';
+import { Home } from './components/HomePage/Home';
 import { Landing } from './components/Landing';
 // api -> https://api.dictionaryapi.dev/api/v2/entries/en
 
