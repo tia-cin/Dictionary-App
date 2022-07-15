@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 const axios = require('axios');
 
 function App() {
+  const [ words, setWords ] = useState([]);
   const searchWords = async (input) => {
     try {
       const req = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${input}`);
@@ -23,21 +24,21 @@ function App() {
               sourceUrls: r.sourceUrls ? r.sourceUrls : null
             }
       });
-      return res;
+      setWords(w => [...w, res]);
+      console.log(res)
     } catch (e) {
       console.log("Request Error: ", e);
     }
   };
   
-  useEffect(() => {
-    searchWords("a")
-  }, [])
+  // useEffect(() => {
+  // }, [])
 
   return (
     <div className="App">
       <Routes>
         <Route path='/' element={<Landing/>}/>
-        <Route path='/home' element={<Home/>} words={words}/>
+        <Route path='/home' element={<Home searchWords={searchWords}/>} />
         <Route path='/home/:word' />
       </Routes>
     </div>

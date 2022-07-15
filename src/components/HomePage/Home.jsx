@@ -2,12 +2,12 @@ import { Footer } from './Footer';
 import { Navbar } from './Navbar';
 import { CardsContainer } from '../Cards/CardsContainer';
 
-export const Home = ({ words }) => {
+export const Home = ({ words, searchWords }) => {
     return (
         <div>
-            <Navbar/>
+            <Navbar searchWords={searchWords}/>
             {/* <CardsContainer/> */}
-            {/* {console.log(words)} */}
+            {console.log(words)}
             <Footer/>
         </div>
     )
