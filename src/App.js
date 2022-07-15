@@ -22,23 +22,20 @@ function App() {
               meanings: r.meanings ? r.meanings : null,
               license: r.license ? r.license : null,
               sourceUrls: r.sourceUrls ? r.sourceUrls : null
-            }
+            };
       });
-      setWords(w => [...w, res]);
-      console.log(res)
+      res ? setWords(w => [...w, res]) : console.log("failed seting words");
+      console.log("app res", res);
     } catch (e) {
       console.log("Request Error: ", e);
     }
   };
-  
-  // useEffect(() => {
-  // }, [])
 
   return (
     <div className="App">
       <Routes>
         <Route path='/' element={<Landing/>}/>
-        <Route path='/home' element={<Home searchWords={searchWords}/>} />
+        <Route path='/home' element={<Home searchWords={searchWords} words={words}/>} />
         <Route path='/home/:word' />
       </Routes>
     </div>

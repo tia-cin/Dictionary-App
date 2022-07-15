@@ -7,7 +7,7 @@ export const Home = ({ words, searchWords }) => {
         <div>
             <Navbar searchWords={searchWords}/>
             {/* <CardsContainer/> */}
-            {console.log(words)}
+            {console.log("home res", words)}
             <Footer/>
         </div>
     )
