@@ -27,7 +27,7 @@ function App() {
               sourceUrls: r.sourceUrls ? r.sourceUrls : null
             };
       });
-      res ? setWords(w => [...w, res]) : console.log("failed seting words");
+      res ? setWords(res) : console.log("failed seting words");
     } catch (e) {
       setFailMessage({
         title: e.response.data.title,

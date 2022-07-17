@@ -5,7 +5,8 @@ export const SearchBar = ({ searchWords }) => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        searchWords(searchWord)
+        searchWords(searchWord);
+        setSearchWord("");
     };
 
     return (

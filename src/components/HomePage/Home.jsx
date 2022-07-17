@@ -7,13 +7,15 @@ export const Home = ({ words, searchWords, failMessage }) => {
         <div>
             <Navbar searchWords={searchWords}/>
             {
-                failMessage ? 
+                failMessage &&
                     <div>
                         <h2>{failMessage.title}</h2>
                         <h3>{failMessage.message}</h3>
                         <p>{failMessage.resolution}</p>
                     </div>
-                : 
+            }
+            {
+                words &&
                     <CardsContainer words={words}/>
             }
             <Footer/>
