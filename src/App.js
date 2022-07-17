@@ -28,6 +28,7 @@ function App() {
             };
       });
       res ? setWords(res) : console.log("failed seting words");
+      console.log("app",res)
     } catch (e) {
       setFailMessage({
         title: e.response.data.title,

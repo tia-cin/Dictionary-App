@@ -5,18 +5,19 @@ import { CardsContainer } from '../Cards/CardsContainer';
 export const Home = ({ words, searchWords, failMessage }) => {
     return (
         <div>
+            {console.log("home",words)}
             <Navbar searchWords={searchWords}/>
             {
-                failMessage &&
+                failMessage ?
                     <div>
                         <h2>{failMessage.title}</h2>
                         <h3>{failMessage.message}</h3>
                         <p>{failMessage.resolution}</p>
                     </div>
-            }
-            {
-                words &&
+                : words.lenght ?
                     <CardsContainer words={words}/>
+                : null
+                
             }
             <Footer/>
         </div>
