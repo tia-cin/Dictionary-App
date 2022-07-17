@@ -28,9 +28,7 @@ function App() {
             };
       });
       res ? setWords(w => [...w, res]) : console.log("failed seting words");
-      console.log("app res", res);
     } catch (e) {
-      console.log("Request Error: ", e.response.data);
       setFailMessage({
         title: e.response.data.title,
         message: e.response.data.message,

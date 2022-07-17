@@ -6,7 +6,6 @@ export const Home = ({ words, searchWords, failMessage }) => {
     return (
         <div>
             <Navbar searchWords={searchWords}/>
-            {console.log("home res", words)}
             {
                 failMessage ? 
                     <div>
@@ -15,7 +14,7 @@ export const Home = ({ words, searchWords, failMessage }) => {
                         <p>{failMessage.resolution}</p>
                     </div>
                 : 
-                    <CardsContainer/>
+                    <CardsContainer words={words}/>
             }
             <Footer/>
         </div>

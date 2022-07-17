@@ -8,7 +8,7 @@ export const CardsContainer = ({ words }) => {
                 words.lenght? 
                     words.map(w => {
                         return (
-                            <Card key={w} word={w.word}/>
+                            <Card key={Math.random()} word={w}/>
                         )
                     })
                 :
