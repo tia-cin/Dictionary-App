@@ -4,7 +4,8 @@ import { Card } from "./Card";
 export const CardsContainer = ({ words }) => {
     return (
         <section>
-            {/* {
+            {console.log("cardscontainer",words)}
+            {
                 words.lenght? 
                     words.map(w => {
                         return (
@@ -12,9 +13,8 @@ export const CardsContainer = ({ words }) => {
                         )
                     })
                 :
-                <span>Loading...</span>
-            } */}
-            {console.log("cardscontainer",words)}
+                <span></span>
+            }
         </section>
     )
 };

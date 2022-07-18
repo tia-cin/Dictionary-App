@@ -1,6 +1,6 @@
 import React from "react";
 
-export const WordCredits = ({ credits }) => {
+export const WordCredits = ({ license, sourceUrl }) => {
     return (
         <div>
             Word Credits
