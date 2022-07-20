@@ -39,12 +39,17 @@ function App() {
     }
   };
 
+  const onFilter = (word) => {
+    let selected = words.filter(w => w.word === word);
+    selected.length > 0 ? selected[0] : null;
+  };
+
   return (
     <div className="App">
       <Routes>
         <Route path='/' element={<Landing/>}/>
         <Route path='/home' element={<Home searchWords={searchWords} words={words} failMessage={failMessage}/>} />
-        <Route path='/home/:word' element={<WordPage/>}/>
+        <Route path='/home/:word' render={({match}) => <WordPage word={onFilter(match.params.word)}/>}/>
       </Routes>
     </div>
   );
