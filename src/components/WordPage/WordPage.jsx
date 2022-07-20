@@ -7,7 +7,7 @@ import { WordTitle } from "./WordTitle";
 export const WordPage = ({ word }) => {
     return (
         <div>
-            <WordTitle title={word.title} phonetic={word.phonetic}/>
+            <WordTitle title={word.word} phonetic={word.phonetic}/>
             <WordMeaning meaning={word.meaning}/>
             <WordPhonetic phonetic={word.phonetics}/>
             <WordCredits license={word.license} sourceUrl={word.sourceUrl}/>
