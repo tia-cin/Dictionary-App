@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Home } from './components/HomePage/Home';
 import { Landing } from './components/Landing';
 import React, { useState } from 'react';
+import { WordPage } from './components/WordPage/WordPage';
 // api -> https://api.dictionaryapi.dev/api/v2/entries/en
 const axios = require('axios');
 
@@ -43,7 +44,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Landing/>}/>
         <Route path='/home' element={<Home searchWords={searchWords} words={words} failMessage={failMessage}/>} />
-        <Route path='/home/:word' />
+        <Route path='/home/:word' element={<WordPage/>}/>
       </Routes>
     </div>
   );

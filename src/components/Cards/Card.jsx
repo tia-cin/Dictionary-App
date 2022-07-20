@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const Card = ({ word }) => {
     return (
         <div>
-            <Link to={`/${word.word}`}>
+            <Link to={`/home/${word.word}`}>
                 <h3>
                     {word.word}
                 </h3>
