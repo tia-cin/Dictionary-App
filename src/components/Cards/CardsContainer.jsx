@@ -6,7 +6,7 @@ export const CardsContainer = ({ words }) => {
         <section>
             {console.log("cardscontainer",words)}
             {
-                words.lenght? 
+                words ? 
                     words.map(w => {
                         return (
                             <Card key={Math.random()} word={w}/>

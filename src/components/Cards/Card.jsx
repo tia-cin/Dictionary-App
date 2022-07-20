@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 export const Card = ({ word }) => {
     return (
         <div>
-            <Link>
-                <h4>
-                    {word.title}
-                </h4>
-                <h3>{word.phonetic ? word.phonetic : null}</h3>
+            <Link to={`/${word.word}`}>
+                <h3>
+                    {word.word}
+                </h3>
+                <h4>{word.phonetic ? word.phonetic : null}</h4>
             </Link>
         </div>
     )
