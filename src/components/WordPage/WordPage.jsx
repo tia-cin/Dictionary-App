@@ -18,8 +18,8 @@ export const WordPage = ({words}) => {
                         <div key={Math.random()}>
                             <WordTitle title={w.word} phonetic={w.phonetic}/>
                              <WordMeaning meanings={w.meanings}/>
-                            {/*<WordPhonetic phonetic={w.phonetics}/>
-                            <WordCredits license={w.license} sourceUrl={w.sourceUrl}/> */}
+                            <WordPhonetic phonetics={w.phonetics}/>
+                            {/*<WordCredits license={w.license} sourceUrl={w.sourceUrl}/> */}
                         </div>
                     )
                 })
