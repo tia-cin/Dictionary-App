@@ -29,7 +29,7 @@ function App() {
               id: Math.random()
             };
       });
-      res ? setWords(res) : console.log("failed seting words");
+      res ? setWords(words=>[...words, res]) : console.log("failed seting words");
       console.log("app",res)
     } catch (e) {
       setFailMessage({
@@ -45,7 +45,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Landing/>}/>
         <Route path='/home' element={<Home searchWords={searchWords} words={words} failMessage={failMessage}/>} />
-        <Route path='/definitions/:wordId' element={<WordPage words={words}/>}/>
+        <Route path='/definitions/:wordId' element={<WordPage words={words} searchWords={searchWords}/>}/>
       </Routes>
     </div>
   );
