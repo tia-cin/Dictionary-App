@@ -7,9 +7,9 @@ export const CardsContainer = ({ words }) => {
             {console.log("cardscontainer",words)}
             {
                 words ? 
-                    words.map(w => {
+                    words.map((w) => {
                         return (
-                            <Card key={Math.random()} word={w}/>
+                            <Card key={w.id} word={w} />
                         )
                     })
                 :

@@ -1,9 +1,10 @@
 import React from "react";
 
-export const WordMeaning = ({ meaning }) => {
+export const WordMeaning = ({ meanings }) => {
     return(
         <div>
-            {meaning}
+            <h2>{meanings.partOfSpeech}</h2>
+
         </div>
     )
 };

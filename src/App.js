@@ -25,7 +25,8 @@ function App() {
               origin: r.origin ? r.origin : null,
               meanings: r.meanings ? r.meanings : null,
               license: r.license ? r.license : null,
-              sourceUrls: r.sourceUrls ? r.sourceUrls : null
+              sourceUrls: r.sourceUrls ? r.sourceUrls : null,
+              id: Math.random()
             };
       });
       res ? setWords(res) : console.log("failed seting words");
@@ -39,17 +40,12 @@ function App() {
     }
   };
 
-  const onFilter = (word) => {
-    let selected = words.filter(w => w.word === word);
-    selected.length > 0 ? selected[0] : null;
-  };
-
   return (
     <div className="App">
       <Routes>
         <Route path='/' element={<Landing/>}/>
         <Route path='/home' element={<Home searchWords={searchWords} words={words} failMessage={failMessage}/>} />
-        <Route path='/home/:word' render={({match}) => <WordPage word={onFilter(match.params.word)}/>}/>
+        <Route path='/definitions/:wordId' element={<WordPage words={words}/>}/>
       </Routes>
     </div>
   );
