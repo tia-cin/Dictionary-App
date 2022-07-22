@@ -19,7 +19,7 @@ export const WordPage = ({words}) => {
                             <WordTitle title={w.word} phonetic={w.phonetic}/>
                              <WordMeaning meanings={w.meanings}/>
                             <WordPhonetic phonetics={w.phonetics}/>
-                            {/*<WordCredits license={w.license} sourceUrl={w.sourceUrl}/> */}
+                            <WordCredits license={w.license} sourceUrls={w.sourceUrls}/>
                         </div>
                     )
                 })
