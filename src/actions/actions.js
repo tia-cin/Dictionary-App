@@ -52,7 +52,7 @@ export const getDetail = (id) => {
 export const getSynonyms = (synonyms) => {
   return async (dispatch) => {
     try {
-        synonyms.map(s => {
+        synonyms.map(async s => {
                 let res = await apiCall(s)
                 return dispatch({
                   type: GET_SYNONYMS,
@@ -68,7 +68,7 @@ export const getSynonyms = (synonyms) => {
 export const getAntonyms = (antonyms) => {
     return async (dispatch) => {
       try {
-          antonyms.map(a => {
+          antonyms.map(async a => {
                   let res = await apiCall(a)
                   return dispatch({
                     type: GET_ANTONTMS,
