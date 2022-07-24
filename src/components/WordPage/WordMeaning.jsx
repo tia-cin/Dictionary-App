@@ -9,7 +9,7 @@ export const WordMeaning = ({ meanings }) => {
     useEffect(() => {
 
     }, [dispatch]);
-    
+
     return(
         <div>
             {
@@ -22,8 +22,8 @@ export const WordMeaning = ({ meanings }) => {
                                     return(
                                         <div key={Math.random()}>
                                             {d.definition && <div><h6>Definition</h6><p>{d.definition}</p></div>}
-                                            {d.synonyms && d.synonyms.map(s => <span>{s}</span>)}
-                                            {d.antonyms && d.antonyms.map(a => <span>{a}</span>)}
+                                            {d.synonyms && setSynonyms(d.synonyms)}
+                                            {d.antonyms && setAntonyms(d.antonyms)}
                                             {d.example && <div><h6>Definition</h6><p>{d.example}</p></div>}
                                         </div>
                                     )
