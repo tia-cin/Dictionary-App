@@ -6,14 +6,14 @@ export const CardsContainer = ({ words }) => {
         <section>
             {console.log("cardscontainer",words)}
             {
-                words ? 
+                words.lenght > 0 ? 
                     words.map((w) => {
                         return (
-                            <Card key={w.id} word={w} />
+                            <Card key={w} word={w} />
                         )
                     })
                 :
-                <span></span>
+                <span>Loading...</span>
             }
         </section>
     )
