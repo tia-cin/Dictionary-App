@@ -9,12 +9,33 @@ export const searchWords = (input) => {
     return async (dispatch) => {
         try {
           const req = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${input}`);
+          let res = await req.data && req.data.map(r => {
+            return {
+                  word: r.word,
+                  phonetic: r.phonetic ? r.phonetic : null,
+                  phonetics: r.phonetics ? r.phonetics : null,
+                  origin: r.origin ? r.origin : null,
+                  meanings: r.meanings ? r.meanings : null,
+                  license: r.license ? r.license : null,
+                  sourceUrls: r.sourceUrls ? r.sourceUrls : null,
+                  id: Math.random()
+                };
+          });
           return dispatch({
             type: SEARCH_WORD,
-            payload: req.data
+            payload: res
           })
         } catch (e) {
             console.log(e.message)
         }
     }
   };
+
+export const getDetail = (id) => {
+    return (dispatch) => {
+        return dispatch({
+            type: GET_DETAIL,
+            payload: id
+        })
+    }
+}

@@ -3,19 +3,27 @@ import { WordCredits } from "./WordCredits";
 import { WordMeaning } from "./WordMeaning";
 import { WordPhonetic } from "./WordPhonetic";
 import { WordTitle } from "./WordTitle";
+import { useDispatch } from "react-redux/es/exports";
 import { useParams } from "react-router-dom";
+import { getDetail } from "../../actions/actions";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 
-export const WordPage = ({words}) => {
+export const WordPage = () => {
+    const dispatch = useDispatch();
     const { wordId } = useParams();
-    let response = words.filter(w => w.id === Number(wordId));
+    const { detail } = useSelector(state => state);
+
+    useEffect(()=> {
+        dispatch(getDetail(wordId))
+    }, [dispatch]);
 
     return (
         <div>
-            {console.log("word page", response, "wordId", wordId)}
+            {console.log(detail)}
             {
-                response && response.map(w => {
+                detail && detail.map(w => {
                     return(
-                        <div key={Math.random()}>
+                        <div key={w.id}>
                             <WordTitle title={w.word} phonetic={w.phonetic}/>
                             <WordMeaning meanings={w.meanings} />
                             <WordPhonetic phonetics={w.phonetics}/>
