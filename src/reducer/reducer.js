@@ -1,4 +1,4 @@
-import { GET_DETAIL, SEARCH_WORD } from "../actions/actions";
+import { GET_ANTONTMS, GET_DETAIL, GET_SYNONYMS, SEARCH_WORD } from "../actions/actions";
 
 const initialState = {
     words: [],
@@ -19,6 +19,16 @@ export const rootReducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 detail: res
+            }
+        case GET_SYNONYMS:
+            return {
+                ...state,
+                synonyms: payload
+            }
+        case GET_ANTONTMS:
+            return {
+                ...state,
+                antonyms: payload
             }
         default: 
             return state

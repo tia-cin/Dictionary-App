@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux/es/hooks/useDispatch";
 
 export const WordMeaning = ({ meanings }) => {
+    const [antonyms, setAntonyms] = useState([]);
+    const [synonyms, setSynonyms] = useState([]);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+
+    }, [dispatch]);
+    
     return(
         <div>
             {
