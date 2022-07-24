@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux/es/exports";
 
 export const SearchBar = () => {
     const [ searchWord, setSearchWord ] = useState("");
-    const dispatch = useDispatch ()
+    const dispatch = useDispatch();
     
     const handleSubmit = (e) => {
         e.preventDefault();

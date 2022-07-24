@@ -1,19 +1,20 @@
 import React from "react";
 import { Card } from "./Card";
+import { useSelector } from 'react-redux';
 
-export const CardsContainer = ({ words }) => {
+export const CardsContainer = () => {
+    const { words } = useSelector(state=> state);
     return (
         <section>
             {console.log("cardscontainer",words)}
             {
-                words.lenght > 0 ? 
-                    words.map((w) => {
+                words && 
+                    words.map((w, i) => {
                         return (
-                            <Card key={w} word={w} />
+                            <Card key={i} word={w} />
                         )
                     })
-                :
-                <span>Loading...</span>
+                
             }
         </section>
     )
