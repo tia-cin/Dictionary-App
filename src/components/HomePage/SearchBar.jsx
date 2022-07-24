@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { searchWords } from "../../actions/actions";
 
-export const SearchBar = ({ searchWords }) => {
+export const SearchBar = () => {
     const [ searchWord, setSearchWord ] = useState("");
     
     const handleSubmit = (e) => {

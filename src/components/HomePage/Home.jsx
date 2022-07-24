@@ -6,7 +6,7 @@ export const Home = ({ words, searchWords, failMessage }) => {
     return (
         <div>
             {console.log("home",words)}
-            <Navbar searchWords={searchWords}/>
+            <Navbar/>
             {
                 failMessage &&
                     <div>
