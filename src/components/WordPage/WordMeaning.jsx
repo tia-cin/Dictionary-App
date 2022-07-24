@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
+import { getAntonyms, getSynonyms } from "../../actions/actions";
 
 export const WordMeaning = ({ meanings }) => {
     const [antonyms, setAntonyms] = useState([]);
@@ -7,7 +8,8 @@ export const WordMeaning = ({ meanings }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-
+        dispatch(getSynonyms(synonyms));
+        dispatch(getAntonyms(antonyms));
     }, [dispatch]);
 
     return(

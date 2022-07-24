@@ -5,7 +5,7 @@ export const GET_ANTONTMS = "GET_ANTONTMS";
 
 const axios = require("axios");
 
-const apiCall = (input) => {
+const apiCall = async (input) => {
     const req = await axios.get(
         `https://api.dictionaryapi.dev/api/v2/entries/en/${input}`
     );
