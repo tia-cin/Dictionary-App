@@ -5,19 +5,20 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 export const Home = () => {
-    const { words } = useSelector(state=> state);
+    const { words } = useSelector(state => state);
+    const { failedMessage } = useSelector(state => state);
     return (
         <div>
             <Navbar/>
-            {/* {
-                failMessage &&
+            {
+                failedMessage &&
                     <div>
-                        <h2>{failMessage.title}</h2>
-                        <h3>{failMessage.message}</h3>
-                        <p>{failMessage.resolution}</p>
+                        <h2>{failedMessage.title}</h2>
+                        <h3>{failedMessage.message}</h3>
+                        <p>{failedMessage.resolution}</p>
                     </div>
-            } */}
-            <CardsContainer words={words}/>
+            }
+            {words.lenght && <CardsContainer words={words}/>}
             <Footer/>
         </div>
     )

@@ -1,11 +1,12 @@
-import { GET_ANTONTMS, GET_DETAIL, GET_SYNONYMS, SEARCH_WORD } from "../actions/actions";
+import { FAILED_MESSAGE, GET_ANTONTMS, GET_DETAIL, GET_SYNONYMS, SEARCH_WORD } from "../actions/actions";
 
 const initialState = {
     words: [],
     antonyms: [],
     synonyms: [],
     detail: [],
-    suggestions: []
+    suggestions: [],
+    failedMessage: {}
 };
 
 export const rootReducer = (state = initialState, { type, payload }) => {
@@ -32,6 +33,12 @@ export const rootReducer = (state = initialState, { type, payload }) => {
                 ...state,
                 antonyms: payload,
                 suggestions: state.suggestions.concat(payload)
+            }
+        case FAILED_MESSAGE:
+            console.log("reducer",payload)
+            return {
+                ...state,
+                failedMessage: payload
             }
         default: 
             return state
