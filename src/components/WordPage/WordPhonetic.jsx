@@ -3,8 +3,7 @@ import React from "react";
 export const WordPhonetic = ({ phonetics }) => {
     return (
         <div>
-            
-            {phonetics && <h2>Phonetics</h2> && phonetics.map(p => {
+                        {phonetics && <h2>Phonetics</h2> && phonetics.map(p => {
                 return(
                     <section key={Math.random()}>
                         <h5>{p.text}</h5>

@@ -5,7 +5,7 @@ import { WordPhonetic } from "./WordPhonetic";
 import { WordTitle } from "./WordTitle";
 import { useDispatch } from "react-redux/es/exports";
 import { useParams } from "react-router-dom";
-import { getDetail, getDetailAntonym, getDetailSynonym } from "../../actions/actions";
+import { getDetail } from "../../actions/actions";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 
 export const WordPage = () => {
@@ -15,7 +15,7 @@ export const WordPage = () => {
 
     useEffect(()=> {
         dispatch(getDetail(wordId))
-    }, [dispatch]);
+    }, [dispatch, wordId]);
 
     return (
         <div>

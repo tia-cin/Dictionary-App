@@ -1,23 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
 import { getAntonyms, getSynonyms } from "../../actions/actions";
-import { CardsContainer } from "../Cards/CardsContainer";
 import { Suggestions } from "../Cards/Suggestions";
 
 export const WordMeaning = ({ meanings }) => {
-    const { synonyms, antonyms } = useSelector(state => state);
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
 
   const handleSynonyms = (value) => {
-    console.log(value)
     dispatch(getSynonyms(value));
     setShow(!show);
   };
 
   const handleAntonyms = (value) => {
-    console.log(value)
     dispatch(getAntonyms(value));
     setShow(!show);
   };

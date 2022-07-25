@@ -22,14 +22,12 @@ export const rootReducer = (state = initialState, { type, payload }) => {
                 detail: res
             }
         case GET_SYNONYMS:
-            console.log(payload)
             return {
                 ...state,
                 synonyms: payload,
                 suggestions: state.suggestions.concat(payload)
             }
         case GET_ANTONTMS:
-            console.log(payload)
             return {
                 ...state,
                 antonyms: payload,

@@ -4,7 +4,7 @@ export const WordCredits = ({ license, sourceUrls }) => {
     return (
         <div>
             {
-                license && sourceUrls ? 
+                (license && sourceUrls) && 
                 <div>
                     <h2>Credits</h2>
                     {
@@ -21,7 +21,6 @@ export const WordCredits = ({ license, sourceUrls }) => {
                         </div>
                     }
                 </div>
-                : null
             }
         </div>
     )

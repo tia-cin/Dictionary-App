@@ -1,11 +1,10 @@
 import { useSelector } from "react-redux";
 
 export const Suggestions = () => {
-    const { suggestions } = useSelector(state => state);
+  const { suggestions } = useSelector((state) => state);
   return (
     <div>
-        <h1>Suggestions</h1>
-      {console.log("suggestions", suggestions)}
+      <h1>Suggestions</h1>
       {suggestions &&
         suggestions.map((a, i) => {
           return (
@@ -46,7 +45,6 @@ export const Suggestions = () => {
             </div>
           );
         })}
-        
     </div>
   );
 };
