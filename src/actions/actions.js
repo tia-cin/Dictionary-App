@@ -58,7 +58,7 @@ export const getSynonyms = (synonym) => {
                   payload: res,
                 });
     } catch (e) {
-      console.log(e.message);
+      console.log(e);
     }
   };
 };
@@ -72,7 +72,7 @@ export const getAntonyms = (antonym) => {
                     payload: res,
                   });
       } catch (e) {
-        console.log(e.message);
+        console.log(e);
       }
     };
   };

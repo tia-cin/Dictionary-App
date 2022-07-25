@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
 import { getAntonyms, getSynonyms } from "../../actions/actions";
 import { CardsContainer } from "../Cards/CardsContainer";
+import { Suggestions } from "../Cards/Suggestions";
 
 export const WordMeaning = ({ meanings }) => {
     const { synonyms, antonyms } = useSelector(state => state);
@@ -80,9 +81,7 @@ export const WordMeaning = ({ meanings }) => {
             </section>
           );
         })}
-        {show && (
-                                <CardsContainer words={synonyms || antonyms}/>
-                            )}
+        {show && <Suggestions />}
     </div>
   );
 };
