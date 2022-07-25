@@ -12,20 +12,8 @@ const apiCall = (input) => {
       const req = await axios.get(
         `https://api.dictionaryapi.dev/api/v2/entries/en/${input}`
       );
-      let res =
-        (await req.data) &&
-        req.data.map((r) => {
-          return {
-            word: r.word,
-            phonetic: r.phonetic ? r.phonetic : null,
-            phonetics: r.phonetics ? r.phonetics : null,
-            origin: r.origin ? r.origin : null,
-            meanings: r.meanings ? r.meanings : null,
-            license: r.license ? r.license : null,
-            sourceUrls: r.sourceUrls ? r.sourceUrls : null,
-            id: Math.random(),
-          };
-        });
+      let res = await req.data
+      console.log("action",req.data)
       return res;
     } catch (error) {
       console.log(error)

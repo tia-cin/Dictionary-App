@@ -12,12 +12,13 @@ const initialState = {
 export const rootReducer = (state = initialState, { type, payload }) => {
     switch(type) {
         case SEARCH_WORD: 
+        // console.log("reducer",payload)
             return {
                 ...state,
                 words: payload
             }
         case GET_DETAIL:
-            let res = state.words.length !== 0 ? state.words.filter(w => w.id == payload) : state.words;
+            let res = state.words.length > 1 ? state.words.filter(w => w.id == payload) : state.words;
             return {
                 ...state,
                 detail: res
