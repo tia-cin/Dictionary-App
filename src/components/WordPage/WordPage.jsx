@@ -5,7 +5,7 @@ import { WordPhonetic } from "./WordPhonetic";
 import { WordTitle } from "./WordTitle";
 import { useDispatch } from "react-redux/es/exports";
 import { useParams } from "react-router-dom";
-import { getDetail } from "../../actions/actions";
+import { getDetail, getDetailAntonym, getDetailSynonym } from "../../actions/actions";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 
 export const WordPage = () => {
@@ -19,7 +19,6 @@ export const WordPage = () => {
 
     return (
         <div>
-            {console.log(detail)}
             {
                 detail && detail.map(w => {
                     return(

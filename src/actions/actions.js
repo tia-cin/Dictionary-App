@@ -49,32 +49,28 @@ export const getDetail = (id) => {
   };
 };
 
-export const getSynonyms = (synonyms) => {
+export const getSynonyms = (synonym) => {
   return async (dispatch) => {
     try {
-        synonyms.map(async s => {
-                let res = await apiCall(s)
+        let res = await apiCall(synonym)
                 return dispatch({
                   type: GET_SYNONYMS,
                   payload: res,
                 });
-            })
     } catch (e) {
       console.log(e.message);
     }
   };
 };
 
-export const getAntonyms = (antonyms) => {
+export const getAntonyms = (antonym) => {
     return async (dispatch) => {
       try {
-          antonyms.map(async a => {
-                  let res = await apiCall(a)
+          let res = await apiCall(antonym)
                   return dispatch({
                     type: GET_ANTONTMS,
                     payload: res,
                   });
-              })
       } catch (e) {
         console.log(e.message);
       }

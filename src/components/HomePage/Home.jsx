@@ -2,9 +2,10 @@ import { Footer } from './Footer';
 import { Navbar } from './Navbar';
 import { CardsContainer } from '../Cards/CardsContainer';
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 export const Home = () => {
-   
+    const { words } = useSelector(state=> state);
     return (
         <div>
             <Navbar/>
@@ -16,7 +17,7 @@ export const Home = () => {
                         <p>{failMessage.resolution}</p>
                     </div>
             } */}
-            <CardsContainer/>
+            <CardsContainer words={words}/>
             <Footer/>
         </div>
     )

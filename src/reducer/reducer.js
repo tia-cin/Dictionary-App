@@ -1,4 +1,4 @@
-import { GET_ANTONTMS, GET_DETAIL, GET_SYNONYMS, SEARCH_WORD } from "../actions/actions";
+import { GET_ANTONTMS, GET_DETAIL, GET_DETAIL_ANTONYM, GET_DETAIL_SYNONYM, GET_SYNONYMS, SEARCH_WORD } from "../actions/actions";
 
 const initialState = {
     words: [],

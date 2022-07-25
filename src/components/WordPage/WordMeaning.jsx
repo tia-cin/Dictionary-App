@@ -1,48 +1,88 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
 import { getAntonyms, getSynonyms } from "../../actions/actions";
+import { CardsContainer } from "../Cards/CardsContainer";
 
 export const WordMeaning = ({ meanings }) => {
-    const [antonyms, setAntonyms] = useState([]);
-    const [synonyms, setSynonyms] = useState([]);
-    const dispatch = useDispatch();
+    const { synonyms, antonyms } = useSelector(state => state);
+  const dispatch = useDispatch();
+  const [show, setShow] = useState(false);
 
-    useEffect(() => {
-        dispatch(getSynonyms(synonyms));
-        dispatch(getAntonyms(antonyms));
-    }, [dispatch]);
+  const handleSynonyms = (value) => {
+    console.log(value)
+    dispatch(getSynonyms(value));
+    setShow(!show);
+  };
 
-    const handleSynonyms = (value) => {
+  const handleAntonyms = (value) => {
+    console.log(value)
+    dispatch(getAntonyms(value));
+    setShow(!show);
+  };
 
-    };
-
-    const handleAntonyms = (value) => {
-
-    };
-
-    return(
-        <div>
-            {
-                meanings && meanings.map(m => {
+  return (
+    <div>
+      {meanings &&
+        meanings.map((m) => {
+          return (
+            <section key={Math.random()}>
+              <h5>Part of Speech: "{m.partOfSpeech}"</h5>
+              <div>
+                {m.definitions &&
+                  m.definitions.map((d) => {
                     return (
-                        <section key={Math.random()}>
-                            <h5>{m.partOfSpeech}</h5>
+                      <div key={Math.random()}>
+                        <div>    
+                            {d.definition && (
                             <div>
-                                {m.definitions && m.definitions.map(d => {
-                                    return(
-                                        <div key={Math.random()}>
-                                            {d.definition && <div><h6>Definition</h6><p>{d.definition}</p></div>}
-                                            {d.synonyms && d.synonyms.map(s => <button key={s} onClick={e => handleSynonyms(e.target.value)}>{s}</button>)}
-                                            {d.antonyms && d.antonyms.map(a => <button key={a} onClick={e => handleAntonyms(e.target.value)}>{a}</button>)}
-                                            {d.example && <div><h6>Definition</h6><p>{d.example}</p></div>}
-                                        </div>
-                                    )
-                                })}
+                                <h6>Definition</h6>
+                                <p>{d.definition}</p>
                             </div>
-                        </section>
-                    )
-                })
-            }
-        </div>
-    )
+                            )}
+                        </div>
+                        <div>
+                            {d.synonyms &&
+                            d.synonyms.map((s) => (
+                                <button
+                                key={s}
+                                onClick={(e) => handleSynonyms(e.target.value)}
+                                value={s}
+                                >
+                                {s}
+                                </button>
+                            ))}
+                            
+                        </div>
+                        <div>
+                            {d.antonyms &&
+                            d.antonyms.map((a) => (
+                                <button
+                                key={a}
+                                onClick={(e) => handleAntonyms(e.target.value)}
+                                value={a}
+                                >
+                                {a}
+                                </button>
+                            ))}
+                        </div>
+                        {d.example && (
+                          <div>
+                            <h6>Definition</h6>
+                            <p>{d.example}</p>
+                          </div>
+                        )}
+                        
+                      </div>
+                    );
+                  })}
+              </div>
+            </section>
+          );
+        })}
+        {show && (
+                                <CardsContainer words={synonyms || antonyms}/>
+                            )}
+    </div>
+  );
 };

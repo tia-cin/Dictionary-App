@@ -1,9 +1,7 @@
 import React from "react";
 import { Card } from "./Card";
-import { useSelector } from 'react-redux';
 
-export const CardsContainer = () => {
-    const { words } = useSelector(state=> state);
+export const CardsContainer = ({words}) => {
     return (
         <section>
             {console.log("cardscontainer",words)}
