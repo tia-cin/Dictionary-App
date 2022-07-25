@@ -29,37 +29,36 @@ export const WordMeaning = ({ meanings }) => {
                   m.definitions.map((d) => {
                     return (
                       <div key={Math.random()}>
-                        <div>    
-                            {d.definition && (
+                        <div>
+                          {d.definition && (
                             <div>
-                                <h6>Definition</h6>
-                                <p>{d.definition}</p>
+                              <h6>Definition</h6>
+                              <p>{d.definition}</p>
                             </div>
-                            )}
+                          )}
                         </div>
                         <div>
-                            {d.synonyms &&
+                          {d.synonyms &&
                             d.synonyms.map((s) => (
-                                <button
+                              <button
                                 key={s}
                                 onClick={(e) => handleSynonyms(e.target.value)}
                                 value={s}
-                                >
+                              >
                                 {s}
-                                </button>
+                              </button>
                             ))}
-                            
                         </div>
                         <div>
-                            {d.antonyms &&
+                          {d.antonyms &&
                             d.antonyms.map((a) => (
-                                <button
+                              <button
                                 key={a}
                                 onClick={(e) => handleAntonyms(e.target.value)}
                                 value={a}
-                                >
+                              >
                                 {a}
-                                </button>
+                              </button>
                             ))}
                         </div>
                         {d.example && (
@@ -68,7 +67,6 @@ export const WordMeaning = ({ meanings }) => {
                             <p>{d.example}</p>
                           </div>
                         )}
-                        
                       </div>
                     );
                   })}
@@ -76,7 +74,7 @@ export const WordMeaning = ({ meanings }) => {
             </section>
           );
         })}
-        {show && <Suggestions />}
+      {show && <Suggestions />}
     </div>
   );
 };
