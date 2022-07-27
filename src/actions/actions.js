@@ -6,23 +6,28 @@ export const FAILED_MESSAGE = "FAILED_MESSAGE";
 
 const axios = require("axios");
 
-const apiCall = (input) => {
-  return async (dispatch) => {
+const apiCall = async (input) => {
     try {
       const req = await axios.get(
         `https://api.dictionaryapi.dev/api/v2/entries/en/${input}`
       );
-      let res = await req.data
-      console.log("action",req.data)
+      let res = (await req.data) &&
+      req.data.map((r) => {
+        return {
+          word: r.word,
+          phonetic: r.phonetic ? r.phonetic : null,
+          phonetics: r.phonetics ? r.phonetics : null,
+          origin: r.origin ? r.origin : null,
+          meanings: r.meanings ? r.meanings : null,
+          license: r.license ? r.license : null,
+          sourceUrls: r.sourceUrls ? r.sourceUrls : null,
+          id: Math.random(),
+        };
+      });
       return res;
     } catch (error) {
-      console.log(error)
-      return dispatch({
-        type: FAILED_MESSAGE,
-        payload: error.response.data,
-      });
+      return error.response.data
     }
-  };
 };
 
 export const searchWords = (input) => {

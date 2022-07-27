@@ -6,19 +6,11 @@ import { useSelector } from 'react-redux';
 
 export const Home = () => {
     const { words } = useSelector(state => state);
-    const { failedMessage } = useSelector(state => state);
     return (
         <div>
             <Navbar/>
-            {
-                failedMessage &&
-                    <div>
-                        <h2>{failedMessage.title}</h2>
-                        <h3>{failedMessage.message}</h3>
-                        <p>{failedMessage.resolution}</p>
-                    </div>
-            }
-            {words.lenght && <CardsContainer words={words}/>}
+            {console.log(words)}
+            <CardsContainer words={words}/>
             <Footer/>
         </div>
     )
