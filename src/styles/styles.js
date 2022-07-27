@@ -1,4 +1,4 @@
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Box, Button, Container, List, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
 export const StyledContainer = styled(Container)`
@@ -47,5 +47,40 @@ export const LinkButton = styled(Button)`
         width: 1em;
         opacity: 1;
         transform: translateX(55px);
+      }
+`;
+
+export const StyledFooter = styled(Box)`
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+`;
+
+export const StyledList = styled(List)`
+      display: flex;
+      flex-direction: row;
+      .item {
+        display: flex;
+        flex-direction: column;
+        margin: 0 .5em;
+      }
+      a {
+        text-decoration: none
+      }
+      span {
+        background: #fdfce5;
+        padding: .5em;
+        border-radius: 5em;
+        color: #191919;
+        font-family: "Arial";
+        font-size: .6em;
+        font-weight: 600;
+        opacity: 0;
+        -webkit-transition: all .25s cubic-bezier(.14, .59, 1, 1.01);
+        transition: all .15s cubic-bezier(.14, .59, 1, 1.01);
+      }
+      .item:hover span {
+        opacity: 1;
+        transform: translateY(1px);
       }
 `;
