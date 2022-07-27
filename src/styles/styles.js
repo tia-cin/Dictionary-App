@@ -53,6 +53,10 @@ export const LinkButton = styled(Button)`
 export const StyledFooter = styled(Box)`
       display: flex;
       flex-direction: row;
+      position: fixed;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
       justify-content: space-around;
 `;
 
@@ -62,13 +66,13 @@ export const StyledList = styled(List)`
       .item {
         display: flex;
         flex-direction: column;
-        margin: 0 .5em;
+        padding: 0 .5em;
       }
       a {
         text-decoration: none
       }
       span {
-        background: #fdfce5;
+        background: #d7e9f7;
         padding: .5em;
         border-radius: 5em;
         color: #191919;
@@ -83,4 +87,20 @@ export const StyledList = styled(List)`
         opacity: 1;
         transform: translateY(1px);
       }
+`;
+
+export const StyledNavbar = styled(Box)`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed; 
+    top: 0;
+    left: 0px;
+    right: 0px;
+    background: #f4d19b;
+    color: #191919;
+    font-family: "Arial";
+    font-size: .8em;
+    font-weight: 600;
 `;

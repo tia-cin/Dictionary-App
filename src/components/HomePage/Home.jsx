@@ -8,11 +8,11 @@ import { StyledContainer } from '../../styles/styles';
 export const Home = () => {
     const { words } = useSelector(state => state);
     return (
-        <StyledContainer>
+        <div>
             <Navbar/>
             {console.log(words)}
             <CardsContainer words={words}/>
             <Footer/>
-        </StyledContainer>
+        </div>
     )
 };
