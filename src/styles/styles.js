@@ -114,7 +114,10 @@ export const StyledNavbar = styled(Box)`
 `;
 
 export const StyledInput = styled(TextField)`
-    input {padding: 0};
+    input { 
+        padding: 0;
+        padding-left: .5em
+    };
 `;
 
 export const StyledForm = styled(Box)`
