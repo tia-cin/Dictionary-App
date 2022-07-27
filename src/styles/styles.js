@@ -71,9 +71,12 @@ export const StyledList = styled(List)`
       a {
         text-decoration: none
       }
-      span {
+      .tech {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         background: #d7e9f7;
-        padding: .5em;
+        padding-right: .8em;
         border-radius: 5em;
         color: #191919;
         font-family: "Arial";
@@ -83,7 +86,12 @@ export const StyledList = styled(List)`
         -webkit-transition: all .25s cubic-bezier(.14, .59, 1, 1.01);
         transition: all .15s cubic-bezier(.14, .59, 1, 1.01);
       }
-      .item:hover span {
+      .tech svg {
+        width: 1em;
+        height: 1em;
+        padding: 0
+      }
+      .item:hover .tech {
         opacity: 1;
         transform: translateY(1px);
       }

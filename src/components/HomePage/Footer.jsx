@@ -5,6 +5,7 @@ import {
   StyledTitles,
   StyledSubtitles,
 } from "../../styles/styles";
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 export const Footer = () => {
   return (
@@ -26,7 +27,10 @@ export const Footer = () => {
                   height="40"
                 />
               </div>
-              <span>React JS</span>
+              <div className="tech">
+                <KeyboardArrowUpIcon/>
+                <span>React</span>
+              </div>
             </div>
           </a>
           <a href="https://redux.js.org/">
@@ -41,8 +45,10 @@ export const Footer = () => {
                   height="40"
                 />
               </div>
-
-              <span>Redux</span>
+              <div className="tech">
+                <KeyboardArrowUpIcon/>
+                <span>Redux</span>
+              </div>
             </div>
           </a>
           <a href="https://mui.com">
@@ -57,7 +63,10 @@ export const Footer = () => {
                   height="40"
                 />
               </div>
-              <span>Material UI</span>
+              <div className="tech">
+                <KeyboardArrowUpIcon/>
+                <span>Material UI</span>
+              </div>
             </div>
           </a>
         </StyledList>
