@@ -4,8 +4,9 @@ import { Card } from "./Card";
 export const CardsContainer = ({words}) => {
     return (
         <section>
+            {console.log("cards", words)}
             {
-                words.word ? 
+                Array.isArray(words) ? 
                     words.map((w, i) => {
                         return (
                             <Card key={i} word={w} />
