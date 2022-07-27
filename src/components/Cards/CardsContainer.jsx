@@ -1,9 +1,10 @@
 import React from "react";
 import { Card } from "./Card";
+import { FailedMessage, StyledTitles, StyledSubtitles } from "../../styles/styles";
 
 export const CardsContainer = ({words}) => {
     return (
-        <section>
+        <main>
             {console.log("cards", words)}
             {
                 Array.isArray(words) ? 
@@ -13,12 +14,12 @@ export const CardsContainer = ({words}) => {
                         )
                     })
                 :
-                    <div>
-                        <h2>{words.title}</h2>
-                        <h3>{words.message}</h3>
+                    <FailedMessage>
+                        <StyledTitles>{words.title}</StyledTitles>
+                        <StyledSubtitles>{words.message}</StyledSubtitles>
                         <p>{words.resolution}</p>
-                    </div>
+                    </FailedMessage>
             }
-        </section>
+        </main>
     )
 };

@@ -153,3 +153,10 @@ export const StyledForm = styled(Box)`
         transform: translateY(1px);
     }
 `;
+
+export const FailedMessage = styled(Box)`
+    background: #f9bc9f;
+    margin: 5em;
+    padding: 2em;
+    border-radius: .5em
+`;
