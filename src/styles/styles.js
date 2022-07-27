@@ -1,4 +1,4 @@
-import { Box, Button, Container, List, Typography } from "@mui/material";
+import { Box, Button, Container, List, TextField, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
 export const StyledContainer = styled(Container)`
@@ -103,4 +103,42 @@ export const StyledNavbar = styled(Box)`
     font-family: "Arial";
     font-size: .8em;
     font-weight: 600;
+`;
+
+export const StyledInput = styled(TextField)`
+    input {padding: 0};
+`;
+
+export const StyledForm = styled(Box)`
+    display: flex;
+    flex-direction: row;
+    form {
+        display: flex;
+        flex-direction: row;
+    }
+    #intruction {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-right: .5em;
+        background: #d7e9f7;
+        padding-left: .8em;
+        border-radius: 5em;
+        color: #191919;
+        font-family: "Arial";
+        font-size: .6em;
+        font-weight: 600;
+        opacity: 0;
+        -webkit-transition: all .25s cubic-bezier(.14, .59, 1, 1.01);
+        transition: all .15s cubic-bezier(.14, .59, 1, 1.01);
+    }
+    #intruction >svg {
+        width: 1em;
+        height: .5em;
+        padding: 0
+    }
+    :hover #intruction{
+        opacity: 1;
+        transform: translateY(1px);
+    }
 `;

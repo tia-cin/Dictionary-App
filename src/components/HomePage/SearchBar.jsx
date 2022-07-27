@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { searchWords } from "../../actions/actions";
 import { useDispatch } from "react-redux/es/exports";
+import SearchIcon from '@mui/icons-material/Search';
+import { StyledInput, StyledForm } from "../../styles/styles";
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 export const SearchBar = () => {
     const [ searchWord, setSearchWord ] = useState("");
@@ -13,9 +16,12 @@ export const SearchBar = () => {
     };
 
     return (
-        <form onSubmit={e => handleSubmit(e)}>
-            <input type="text" value={searchWord} onChange={e => setSearchWord(e.target.value)}/>
-            <button type="submit" onSubmit={e => handleSubmit(e)}>Search</button>
-        </form>
+        <StyledForm>
+            <div id="intruction">Write a word<KeyboardArrowRightIcon/></div>
+            <form onSubmit={e => handleSubmit(e)}>
+                <div><StyledInput type="text" value={searchWord} onChange={e => setSearchWord(e.target.value)}/></div>
+                <SearchIcon onClick={e => handleSubmit(e)}/>
+            </form>
+        </StyledForm>
     )
 };
