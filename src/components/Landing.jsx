@@ -1,26 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { StyledBox, StyledTitles, StyledSubtitles, LinkButton, StyledContainer } from "../styles/styles"
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 export const Landing = () => {
-    return (
-        <div>
-                <div>
-                    <div>
-                        <h2 >Search any word and find</h2>
-                    </div>
-                    <div>
-                        <h2 >their definition in our</h2> 
-                        <h2 >Dictionary</h2>
-                    </div>
-                </div>
-                <div>
-                    <h2 >Search any word and find it's definitions, pronunsiations and more</h2>
-                </div>
-                <Link to='/home'>
-                    <button >
-                      Get Started
-                    </button>
-                </Link>
-        </div>
-    )
+  return (
+      <StyledContainer>
+        <StyledBox>
+          <StyledTitles>Welcome to our Dictionary</StyledTitles>
+        </StyledBox>
+        <StyledBox>
+          <StyledSubtitles>
+            Search any word and find it's definitions, pronunciation and more
+          </StyledSubtitles>
+        </StyledBox>
+        <StyledBox>
+          <Link to="/home" style={{ textDecoration: "none"}}>
+            <LinkButton>Get Started
+              <KeyboardArrowRightIcon/>
+            </LinkButton>
+          </Link>
+        </StyledBox>
+      </StyledContainer>
+  );
 };
