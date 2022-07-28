@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
 import { getAntonyms, getSynonyms } from "../../actions/actions";
+import { StyledMeaning } from "../../styles/containers";
 import { Suggestions } from "../Cards/Suggestions";
 
 export const WordMeaning = ({ meanings }) => {
@@ -18,52 +19,62 @@ export const WordMeaning = ({ meanings }) => {
   };
 
   return (
-    <div>
+    <StyledMeaning>
       {meanings &&
         meanings.map((m) => {
           return (
-            <section key={Math.random()}>
+            <section key={Math.random()} className="meanings">
               <h5>Part of Speech: "{m.partOfSpeech}"</h5>
               <div>
                 {m.definitions &&
                   m.definitions.map((d) => {
                     return (
-                      <div key={Math.random()}>
-                        <div>
-                          {d.definition && (
-                            <div>
-                              <h6>Definition</h6>
-                              <p>{d.definition}</p>
-                            </div>
-                          )}
-                        </div>
-                        <div>
-                          {d.synonyms &&
-                            d.synonyms.map((s) => (
-                              <button
-                                key={s}
-                                onClick={(e) => handleSynonyms(e.target.value)}
-                                value={s}
-                              >
-                                {s}
-                              </button>
-                            ))}
-                        </div>
-                        <div>
-                          {d.antonyms &&
-                            d.antonyms.map((a) => (
-                              <button
-                                key={a}
-                                onClick={(e) => handleAntonyms(e.target.value)}
-                                value={a}
-                              >
-                                {a}
-                              </button>
-                            ))}
-                        </div>
+                      <div key={Math.random()} className="definitions">
+                        {d.definition && (
+                          <div className="definition">
+                            {d.definition && (
+                              <div>
+                                <h6>Definition</h6>
+                                <p>{d.definition}</p>
+                              </div>
+                            )}
+                          </div>
+                        )}
+                        {d.synonyms && (
+                          <div className="synonyms">
+                            {d.synonyms &&
+                              d.synonyms.map((s) => (
+                                <button
+                                  key={s}
+                                  onClick={(e) =>
+                                    handleSynonyms(e.target.value)
+                                  }
+                                  value={s}
+                                >
+                                  {s}
+                                </button>
+                              ))}
+                          </div>
+                        )}
+                        {d.antonyms && (
+                          <div className="antonyms">
+                            {d.antonyms &&
+                              d.antonyms.map((a) => (
+                                <button
+                                  key={a}
+                                  onClick={(e) =>
+                                    handleAntonyms(e.target.value)
+                                  }
+                                  value={a}
+                                >
+                                  {a}
+                                </button>
+                              ))}
+                          </div>
+                        )}
                         {d.example && (
-                          <div>
-                            <h6>Definition</h6>
+                          <div className="examples">
+                            <h6>Examples</h6>
                             <p>{d.example}</p>
                           </div>
                         )}
@@ -75,6 +86,6 @@ export const WordMeaning = ({ meanings }) => {
           );
         })}
       {show && <Suggestions />}
-    </div>
+    </StyledMeaning>
   );
 };

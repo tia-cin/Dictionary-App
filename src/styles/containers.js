@@ -120,3 +120,7 @@ export const StyledCardContainer = styled(Grid)`
         text-decoration: none
     }
 `;
+
+export const StyledMeaning = styled(Box)`
+    
+`;
