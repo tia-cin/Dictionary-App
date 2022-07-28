@@ -1,10 +1,11 @@
 import React from "react";
+import { StyledSubtitles, StyledTitles } from "../../styles/childs";
 
 export const WordTitle = ({ title, phonetic }) => {
     return (
         <div>
-            <h1>{title}</h1>
-            <h2>{phonetic}</h2>
+            <StyledTitles>{title}</StyledTitles>
+            <StyledSubtitles>{phonetic}</StyledSubtitles>
         </div>
     )
 };
