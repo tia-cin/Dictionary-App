@@ -1,4 +1,4 @@
-import { Box, Button, Container, List, TextField, Typography } from "@mui/material";
+import { Box, Button, Card, Container, Grid, List, TextField, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
 export const StyledContainer = styled(Container)`
@@ -177,5 +177,28 @@ export const FailedMessage = styled(Box)`
         font-family: "Arial";
         font-size: .8em;
         font-weight: 500;
+    }
+`;
+
+export const StyledCard = styled(Card)`
+    display: flex;
+    justify-content: center;
+    background: #d7e9f7;
+    margin: 1em;
+    padding: 1em 2em;
+    width: 15%;
+    h3 {
+        color: white;
+        font-size: 2em;
+    }
+    h4 {
+        color: grey
+    }
+`;
+
+export const StyledCardContainer = styled(Grid)`
+    margin: 5em 3em;
+    a {
+        text-decoration: none
     }
 `;

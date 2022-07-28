@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Card } from "./Card";
-import { FailedMessage, StyledTitles, StyledSubtitles } from "../../styles/styles";
+import { FailedMessage, StyledTitles, StyledSubtitles, StyledCardContainer } from "../../styles/styles";
 import ReportIcon from '@mui/icons-material/Report';
 
 export const CardsContainer = ({words}) => {
     return (
-        <main>
+        <StyledCardContainer container spacing={2}>
             {console.log("cards", words)}
             {
                 Array.isArray(words) ? 
@@ -24,6 +24,6 @@ export const CardsContainer = ({words}) => {
                         </div>
                     </FailedMessage>
             }
-        </main>
+        </StyledCardContainer>
     )
 };
