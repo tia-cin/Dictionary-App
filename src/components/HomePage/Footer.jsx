@@ -1,6 +1,8 @@
 import React from "react";
+// styles
 import { StyledTitles, StyledSubtitles } from "../../styles/childs";
 import { StyledList, StyledFooter } from "../../styles/containers";
+// MUI
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 export const Footer = () => {

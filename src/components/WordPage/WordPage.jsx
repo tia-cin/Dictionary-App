@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
-import { WordCredits } from "./WordCredits";
-import { WordMeaning } from "./WordMeaning";
-import { WordPhonetic } from "./WordPhonetic";
-import { WordTitle } from "./WordTitle";
 import { useDispatch } from "react-redux/es/exports";
 import { useParams } from "react-router-dom";
 import { getDetail } from "../../actions/actions";
 import { useSelector } from "react-redux/es/hooks/useSelector";
+// components
+import { WordCredits } from "./WordCredits";
+import { WordMeaning } from "./WordMeaning";
+import { WordPhonetic } from "./WordPhonetic";
+import { WordTitle } from "./WordTitle";
 
 export const WordPage = () => {
     const dispatch = useDispatch();

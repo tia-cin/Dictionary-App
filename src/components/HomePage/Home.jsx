@@ -1,8 +1,9 @@
+import React from 'react';
+import { useSelector } from 'react-redux';
+// components
 import { Footer } from './Footer';
 import { Navbar } from './Navbar';
 import { CardsContainer } from '../Cards/CardsContainer';
-import React from 'react';
-import { useSelector } from 'react-redux';
 
 export const Home = () => {
     const { words } = useSelector(state => state);

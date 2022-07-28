@@ -1,4 +1,5 @@
 import React from "react";
+// styles
 import { StyledMedium } from "../../styles/wordpage";
 
 export const WordCredits = ({ license, sourceUrls }) => {

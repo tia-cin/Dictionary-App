@@ -1,5 +1,7 @@
 import React from "react";
+// components
 import { Card } from "./Card";
+// styles
 import { StyledCardContainer } from "../../styles/containers";
 import { FailedMessage, StyledTitles, StyledSubtitles } from "../../styles/childs";
 

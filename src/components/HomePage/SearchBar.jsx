@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { searchWords } from "../../actions/actions";
 import { useDispatch } from "react-redux/es/exports";
-import SearchIcon from '@mui/icons-material/Search';
+import { searchWords } from "../../actions/actions";
+// styles
 import { StyledInput } from "../../styles/childs";
 import { StyledForm } from "../../styles/containers";
+// MUI
+import SearchIcon from '@mui/icons-material/Search';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 export const SearchBar = () => {
