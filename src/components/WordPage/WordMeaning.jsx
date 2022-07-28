@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
 import { getAntonyms, getSynonyms } from "../../actions/actions";
 import { WordButtons } from "../../styles/childs";
-import { StyledBox, StyledMeaning } from "../../styles/containers";
+import { StyledMedium } from "../../styles/containers";
 import { Suggestions } from "../Cards/Suggestions";
 
 export const WordMeaning = ({ meanings }) => {
@@ -20,17 +20,17 @@ export const WordMeaning = ({ meanings }) => {
   };
 
   return (
-    <StyledMeaning>
+    <StyledMedium>
       {meanings &&
         meanings.map((m) => {
           return (
-            <StyledBox key={Math.random()} className="meanings">
+            <div key={Math.random()} className="meanings">
               <h5>Part of Speech: "{m.partOfSpeech}"</h5>
               <div>
                 {m.definitions &&
                   m.definitions.map((d) => {
                     return (
-                      <StyledBox key={Math.random()} className="definitions">
+                      <div key={Math.random()} className="definitions">
                         {d.definition && (
                           <div className="definition">
                             <p>Definition</p>
@@ -79,14 +79,14 @@ export const WordMeaning = ({ meanings }) => {
                             <h6>{d.example}</h6>
                           </div>
                         )}
-                      </StyledBox>
+                      </div>
                     );
                   })}
               </div>
-            </StyledBox>
+            </div>
           );
         })}
       {show && <Suggestions />}
-    </StyledMeaning>
+    </StyledMedium>
   );
 };

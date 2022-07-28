@@ -1,8 +1,9 @@
 import React from "react";
+import { StyledMedium } from "../../styles/containers";
 
 export const WordPhonetic = ({ phonetics }) => {
   return (
-    <div>
+    <StyledMedium>
       {phonetics && <h2>Phonetics</h2> &&
         phonetics.map((p) => {
           return (
@@ -24,6 +25,6 @@ export const WordPhonetic = ({ phonetics }) => {
             </section>
           );
         })}
-    </div>
+    </StyledMedium>
   );
 };

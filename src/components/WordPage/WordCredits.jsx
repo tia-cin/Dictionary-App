@@ -1,10 +1,11 @@
 import React from "react";
+import { StyledMedium } from "../../styles/containers";
 
 export const WordCredits = ({ license, sourceUrls }) => {
   return (
-    <div>
+    <StyledMedium>
       {license && sourceUrls && (
-        <div>
+        <div className="credits">
           <h2>Credits</h2>
           {license && (
             <div>
@@ -15,7 +16,7 @@ export const WordCredits = ({ license, sourceUrls }) => {
             </div>
           )}
           {sourceUrls && (
-            <div>
+            <div className="credits">
               <h3>Sourse URLs:</h3>
               {sourceUrls &&
                 sourceUrls.map((u) => (
@@ -27,6 +28,6 @@ export const WordCredits = ({ license, sourceUrls }) => {
           )}
         </div>
       )}
-    </div>
+    </StyledMedium>
   );
 };
