@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
 import { getAntonyms, getSynonyms } from "../../actions/actions";
-import { StyledMeaning } from "../../styles/containers";
+import { WordButtons } from "../../styles/childs";
+import { StyledBox, StyledMeaning } from "../../styles/containers";
 import { Suggestions } from "../Cards/Suggestions";
 
 export const WordMeaning = ({ meanings }) => {
@@ -23,36 +24,34 @@ export const WordMeaning = ({ meanings }) => {
       {meanings &&
         meanings.map((m) => {
           return (
-            <section key={Math.random()} className="meanings">
+            <StyledBox key={Math.random()} className="meanings">
               <h5>Part of Speech: "{m.partOfSpeech}"</h5>
               <div>
                 {m.definitions &&
                   m.definitions.map((d) => {
                     return (
-                      <div key={Math.random()} className="definitions">
+                      <StyledBox key={Math.random()} className="definitions">
                         {d.definition && (
                           <div className="definition">
-                            {d.definition && (
-                              <div>
-                                <h6>Definition</h6>
-                                <p>{d.definition}</p>
-                              </div>
-                            )}
+                            <p>Definition</p>
+                            <h6>{d.definition}</h6>
                           </div>
                         )}
                         {d.synonyms && (
                           <div className="synonyms">
                             {d.synonyms &&
                               d.synonyms.map((s) => (
-                                <button
+                                <WordButtons
                                   key={s}
                                   onClick={(e) =>
                                     handleSynonyms(e.target.value)
                                   }
                                   value={s}
+                                  variant="contained"
                                 >
                                   {s}
-                                </button>
+                                  <span className="synonym icon">S</span>
+                                </WordButtons>
                               ))}
                           </div>
                         )}
@@ -60,29 +59,31 @@ export const WordMeaning = ({ meanings }) => {
                           <div className="antonyms">
                             {d.antonyms &&
                               d.antonyms.map((a) => (
-                                <button
+                                <WordButtons
                                   key={a}
                                   onClick={(e) =>
                                     handleAntonyms(e.target.value)
                                   }
                                   value={a}
+                                  variant="contained"
                                 >
                                   {a}
-                                </button>
+                                  <span className="antonym icon">A</span>
+                                </WordButtons>
                               ))}
                           </div>
                         )}
                         {d.example && (
                           <div className="examples">
-                            <h6>Examples</h6>
-                            <p>{d.example}</p>
+                            <p>Examples</p>
+                            <h6>{d.example}</h6>
                           </div>
                         )}
-                      </div>
+                      </StyledBox>
                     );
                   })}
               </div>
-            </section>
+            </StyledBox>
           );
         })}
       {show && <Suggestions />}

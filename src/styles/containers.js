@@ -123,12 +123,11 @@ export const StyledCardContainer = styled(Grid)`
 
 export const StyledMeaning = styled(Box)`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     border: solid #191919 1px;
     border-radius: 1em;
+    margin: .5em;
     padding: 1em;
-    .definitions {
-        display: flex;
-        flex-direction: column;
-    }
+    color: #191919;
+    font-family: "Arial";
 `;
