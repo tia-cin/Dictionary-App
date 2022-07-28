@@ -16,8 +16,7 @@ export const CardsContainer = ({words}) => {
                         )
                     })
                 :
-                    <FailedMessage>
-                        <ReportIcon sx={{fontSize: "5em"}}/>
+                    <FailedMessage severity="error">
                         <div className="message">
                             <StyledTitles>{words.title}</StyledTitles>
                             <StyledSubtitles>{words.message}</StyledSubtitles>

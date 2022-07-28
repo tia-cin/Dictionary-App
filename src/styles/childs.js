@@ -1,4 +1,4 @@
-import { Box, Button, Card, TextField, Typography } from "@mui/material";
+import { Alert, Box, Button, Card, TextField, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
 export const StyledTitles = styled(Typography)`
@@ -45,19 +45,15 @@ export const StyledInput = styled(TextField)`
     };
 `;
 
-export const FailedMessage = styled(Box)`
+export const FailedMessage = styled(Alert)`
     display: flex;
     justify-content: center;
-    margin: 5em;
+    margin: 2em 0em;
     padding: 2em;
     background: #f9bc9f;
     border-radius: 2em;
     svg {
         font-size: 8em;
-    }
-    svg:hover {
-        color: red;
-        transition: .5s
     }
     p:last-child {
         color: #191919;
