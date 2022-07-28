@@ -1,4 +1,4 @@
-import { Alert, Box, Button, Card, TextField, Typography } from "@mui/material";
+import { Alert, Button, Card, TextField, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
 export const StyledTitles = styled(Typography)`
