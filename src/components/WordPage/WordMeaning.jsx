@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
 import { getAntonyms, getSynonyms } from "../../actions/actions";
-import { WordButtons } from "../../styles/childs";
-import { StyledMedium } from "../../styles/containers";
+import { WordButtons, StyledMedium } from "../../styles/wordpage";
 import { Suggestions } from "../Cards/Suggestions";
 
 export const WordMeaning = ({ meanings }) => {

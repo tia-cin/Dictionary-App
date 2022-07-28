@@ -35,9 +35,7 @@ export const StyledList = styled(List)`
         flex-direction: column;
         padding: 0 .5em;
       }
-      a {
-        text-decoration: none
-      }
+      a {text-decoration: none}
       .tech {
         display: flex;
         flex-direction: row;
@@ -116,16 +114,5 @@ export const StyledForm = styled(Box)`
 
 export const StyledCardContainer = styled(Grid)`
     margin: 5em 3em;
-    a {
-        text-decoration: none
-    }
-`;
-
-export const StyledMedium = styled(Box)`
-    display: flex;
-    flex-direction: column;
-    margin: .5em;
-    padding: 1em;
-    color: #191919;
-    font-family: "Arial";
+    a {text-decoration: none}
 `;

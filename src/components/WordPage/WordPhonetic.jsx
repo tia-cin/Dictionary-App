@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledMedium } from "../../styles/containers";
+import { StyledMedium } from "../../styles/wordpage";
 
 export const WordPhonetic = ({ phonetics }) => {
   return (
