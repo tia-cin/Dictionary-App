@@ -11,6 +11,10 @@ export const StyledContainer = styled(Container)`
 
 export const StyledBox = styled(Box)`
     margin: 1.5em;
+    diplay: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-self: center;
 `;
 
 export const StyledTitles = styled(Typography)`
@@ -155,8 +159,23 @@ export const StyledForm = styled(Box)`
 `;
 
 export const FailedMessage = styled(Box)`
-    background: #f9bc9f;
+    display: flex;
+    justify-content: center;
     margin: 5em;
     padding: 2em;
-    border-radius: .5em
+    background: #f9bc9f;
+    border-radius: 2em;
+    svg {
+        font-size: 8em;
+    }
+    svg:hover {
+        color: red;
+        transition: .5s
+    }
+    p:last-child {
+        color: #191919;
+        font-family: "Arial";
+        font-size: .8em;
+        font-weight: 500;
+    }
 `;
