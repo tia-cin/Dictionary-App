@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledNavbar } from "../../styles/styles";
+import { StyledNavbar } from "../../styles/containers";
 import { SearchBar } from "./SearchBar"
 
 export const Navbar = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { StyledCard } from "../../styles/styles";
+import { StyledCard } from "../../styles/childs";
 
 export const Card = ({ word }) => {
     return (

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { StyledBox, StyledTitles, StyledSubtitles, LinkButton, StyledContainer } from "../styles/styles"
+import { StyledTitles, StyledSubtitles, LinkButton} from "../styles/childs"
+import { StyledBox, StyledContainer } from "../styles/containers"
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 export const Landing = () => {

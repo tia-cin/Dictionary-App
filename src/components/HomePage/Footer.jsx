@@ -1,10 +1,6 @@
 import React from "react";
-import {
-  StyledList,
-  StyledFooter,
-  StyledTitles,
-  StyledSubtitles,
-} from "../../styles/styles";
+import { StyledTitles, StyledSubtitles } from "../../styles/childs";
+import { StyledList, StyledFooter } from "../../styles/containers";
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 export const Footer = () => {

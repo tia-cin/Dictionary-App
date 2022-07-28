@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card } from "./Card";
-import { FailedMessage, StyledTitles, StyledSubtitles, StyledCardContainer } from "../../styles/styles";
+import { StyledCardContainer } from "../../styles/containers";
+import { FailedMessage, StyledTitles, StyledSubtitles } from "../../styles/childs";
 import ReportIcon from '@mui/icons-material/Report';
 
 export const CardsContainer = ({words}) => {
