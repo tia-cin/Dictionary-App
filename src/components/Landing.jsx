@@ -6,6 +6,7 @@ import { StyledBox, StyledContainer } from "../styles/containers"
 // MUI
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
+
 export const Landing = () => {
   return (
       <StyledContainer>
