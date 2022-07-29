@@ -25,6 +25,11 @@ export const StyledFooter = styled(Box)`
       left: 0px;
       right: 0px;
       justify-content: space-around;
+      a {
+        text-decoration: none;
+        color: #191919;
+        cursor: pointer
+      }
 `;
 
 export const StyledList = styled(List)`

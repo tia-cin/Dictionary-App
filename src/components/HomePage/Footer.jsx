@@ -10,7 +10,9 @@ export const Footer = () => {
     <StyledFooter>
       <div>
         <StyledTitles>Developer</StyledTitles>
-        <StyledSubtitles>Cintia Arce</StyledSubtitles>
+        <StyledSubtitles>
+          <a href="https://github.com/tia-cin">Cintia Arce</a>
+        </StyledSubtitles>
       </div>
       <div>
         <StyledTitles>Technologies</StyledTitles>
