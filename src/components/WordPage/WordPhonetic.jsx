@@ -5,7 +5,8 @@ import { StyledMedium } from "../../styles/wordpage";
 export const WordPhonetic = ({ phonetics }) => {
   return (
     <StyledMedium>
-      {phonetics && <h2>Phonetics</h2> &&
+      <h2>Phonetics</h2>
+      {phonetics &&
         phonetics.map((p) => {
           return (
             <section class="phonetics" key={Math.random()}>

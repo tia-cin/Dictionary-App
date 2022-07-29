@@ -39,7 +39,7 @@ export const StyledMedium = styled(Stack)`
     font-family: "Arial";
     background: #f4d19b;
     border-radius: 2em;
-    .phonetics {
+    .phonetics ,.credits{
         background: #f9f7f2;
         border-radius: 2em;
         padding: 1em;
@@ -48,7 +48,7 @@ export const StyledMedium = styled(Stack)`
         align-items: center;
         justify-content: space-around;
     }
-    .phonetic, .license {
+    .phonetic, .license, .credits >div  {
         display: flex;
         flex-direction: row;
         align-items: center;

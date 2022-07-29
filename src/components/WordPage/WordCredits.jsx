@@ -5,12 +5,13 @@ import { StyledMedium } from "../../styles/wordpage";
 export const WordCredits = ({ license, sourceUrls }) => {
   return (
     <StyledMedium>
+      <h2>Credits</h2>
       {license && sourceUrls && (
         <div className="credits">
-          <h2>Credits</h2>
+          
           {license && (
             <div>
-              <h3>License:</h3>
+              <h5>License:</h5>
               <a href={license.url}>
                 <p>{license.name}</p>
               </a>
@@ -18,7 +19,7 @@ export const WordCredits = ({ license, sourceUrls }) => {
           )}
           {sourceUrls && (
             <div className="credits">
-              <h3>Sourse URLs:</h3>
+              <h5>Sourse URLs:</h5>
               {sourceUrls &&
                 sourceUrls.map((u) => (
                   <a href={u} key={u}>

@@ -22,6 +22,7 @@ export const WordMeaning = ({ meanings }) => {
 
   return (
     <StyledBig>
+      <h2>Meanings</h2>
       {meanings &&
         meanings.map((m) => {
           return (
