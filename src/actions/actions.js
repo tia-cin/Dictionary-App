@@ -21,7 +21,7 @@ const apiCall = async (input) => {
           meanings: r.meanings ? r.meanings : null,
           license: r.license ? r.license : null,
           sourceUrls: r.sourceUrls ? r.sourceUrls : null,
-          id: Math.random(),
+          id: Math.floor(Math.random() * 100000) + 1,
         };
       });
       return res;
