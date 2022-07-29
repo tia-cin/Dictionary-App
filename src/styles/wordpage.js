@@ -1,4 +1,4 @@
-import { Button, Box, Stack } from "@mui/material";
+import { Button, Box, Stack, Modal } from "@mui/material";
 import { styled } from "@mui/system";
 
 export const WordButtons = styled(Button)`
@@ -65,6 +65,28 @@ export const StyledMedium = styled(Stack)`
 `;
 
 export const StyledSmall = styled(Box)`
+    p, h6 {
+        margin: .5em
+    }
+`;
+
+export const StyledModal = styled(Box)`
+    margin: 4em 2em;
+    padding: 1em;
+    color: #191919;
+    font-family: "Arial";
+    background: #f4d19b;
+    border-radius: 2em;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    height: 200;
+    .suggestion {
+        background: #f9f7f2;
+        border-radius: 2em;
+        margin: .5em;
+        padding: 1em;
+        border: solid 1px #191919;
+    }
     p, h6 {
         margin: .5em
     }

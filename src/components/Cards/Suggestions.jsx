@@ -1,38 +1,39 @@
 import { useSelector } from "react-redux";
+import { StyledModal } from "../../styles/wordpage";
 
 export const Suggestions = () => {
   const { suggestions } = useSelector((state) => state);
   return (
-    <div>
-      <h1>Suggestions</h1>
+    <StyledModal  sx={{
+      height: 600
+    }}>
+      <h2>Suggestions</h2>
       {suggestions &&
         suggestions.map((a, i) => {
           return (
-            <div key={i}>
+            <div key={i} className="suggestion">
               <h2>{a.word}</h2>
               <h4>{a.phonetic}</h4>
               {a.meanings &&
                 a.meanings.map((m) => {
                   return (
-                    <section key={Math.random()}>
+                    <section key={Math.random()} className="meaning">
                       <h5>Part of Speech: "{m.partOfSpeech}"</h5>
                       <div>
                         {m.definitions &&
                           m.definitions.map((d) => {
                             return (
                               <div key={Math.random()}>
-                                <div>
                                   {d.definition && (
-                                    <div>
-                                      <h6>Definition</h6>
-                                      <p>{d.definition}</p>
+                                    <div className="definition">
+                                      <p>Definition</p>
+                                      <h6>{d.definition}</h6>
                                     </div>
                                   )}
-                                </div>
                                 {d.example && (
-                                  <div>
-                                    <h6>Definition</h6>
-                                    <p>{d.example}</p>
+                                  <div className="example">
+                                    <p>Example</p>
+                                    <h6>{d.example}</h6>
                                   </div>
                                 )}
                               </div>
@@ -45,6 +46,6 @@ export const Suggestions = () => {
             </div>
           );
         })}
-    </div>
+    </StyledModal>
   );
 };

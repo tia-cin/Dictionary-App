@@ -4,11 +4,15 @@ import { getAntonyms, getSynonyms } from "../../actions/actions";
 // components
 import { Suggestions } from "../Cards/Suggestions";
 // styles
-import { WordButtons, StyledBig, StyledSmall, StyledMedium } from "../../styles/wordpage";
+import { WordButtons, StyledBig, StyledSmall } from "../../styles/wordpage";
+// MUI
+import { Modal } from '@mui/material';
 
 export const WordMeaning = ({ meanings }) => {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
+  const handleOpen = () => setShow(true);
+  const handleClose = () => setShow(false);
 
   const handleSynonyms = (value) => {
     dispatch(getSynonyms(value));
@@ -45,9 +49,10 @@ export const WordMeaning = ({ meanings }) => {
                               d.synonyms.map((s) => (
                                 <WordButtons
                                   key={s}
-                                  onClick={(e) =>
-                                    handleSynonyms(e.target.value)
-                                  }
+                                  onClick={(e) => {
+                                    handleSynonyms(e.target.value); 
+                                    handleOpen()
+                                  }}
                                   value={s}
                                   variant="contained"
                                 >
@@ -88,7 +93,9 @@ export const WordMeaning = ({ meanings }) => {
             </div>
           );
         })}
-      {show && <Suggestions />}
+      <Modal open={show} onClose={handleClose}>
+        <Suggestions/>
+      </Modal>
     </StyledBig>
   );
 };
