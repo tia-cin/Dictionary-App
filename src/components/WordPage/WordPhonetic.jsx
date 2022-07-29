@@ -8,15 +8,17 @@ export const WordPhonetic = ({ phonetics }) => {
       {phonetics && <h2>Phonetics</h2> &&
         phonetics.map((p) => {
           return (
-            <section key={Math.random()}>
-              <h5>{p.text}</h5>
-              {p.audio && (
-                <div>
-                  <audio src={p.audio} controls></audio>
-                </div>
-              )}
+            <section class="phonetics" key={Math.random()}>
+              <div class="phonetic">
+                <h5>{p.text}</h5>
+                {p.audio && (
+                  <div>
+                    <audio src={p.audio} controls></audio>
+                  </div>
+                )}
+              </div>
               {p.license && (
-                <div>
+                <div className="license">
                   <h5>License:</h5>
                   <a href={p.license.url}>
                     <p>{p.license.name}</p>
