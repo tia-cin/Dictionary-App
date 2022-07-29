@@ -11,7 +11,7 @@ export const Footer = () => {
       <div>
         <StyledTitles>Developer</StyledTitles>
         <StyledSubtitles>
-          <a href="https://github.com/tia-cin">Cintia Arce</a>
+          <a href="https://github.com/tia-cin" target="_blanck">Cintia Arce</a>
         </StyledSubtitles>
       </div>
       <div>
