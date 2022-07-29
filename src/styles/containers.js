@@ -85,6 +85,9 @@ export const StyledForm = styled(Box)`
         display: flex;
         flex-direction: row;
     }
+    form > svg {
+        cursor: pointer;
+    }
     #intruction {
         display: flex;
         flex-direction: row;
@@ -104,7 +107,7 @@ export const StyledForm = styled(Box)`
     #intruction >svg {
         width: 1em;
         height: .5em;
-        padding: 0
+        padding: 0;
     }
     :hover #intruction{
         opacity: 1;

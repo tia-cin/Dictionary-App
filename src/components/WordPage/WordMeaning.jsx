@@ -4,7 +4,7 @@ import { getAntonyms, getSynonyms } from "../../actions/actions";
 // components
 import { Suggestions } from "../Cards/Suggestions";
 // styles
-import { WordButtons, StyledMedium } from "../../styles/wordpage";
+import { WordButtons, StyledBig, StyledSmall, StyledMedium } from "../../styles/wordpage";
 
 export const WordMeaning = ({ meanings }) => {
   const dispatch = useDispatch();
@@ -21,25 +21,25 @@ export const WordMeaning = ({ meanings }) => {
   };
 
   return (
-    <StyledMedium>
+    <StyledBig>
       {meanings &&
         meanings.map((m) => {
           return (
             <div key={Math.random()} className="meanings">
-              <h5>Part of Speech: "{m.partOfSpeech}"</h5>
+              <h3>Part of Speech: "{m.partOfSpeech}"</h3>
               <div>
                 {m.definitions &&
                   m.definitions.map((d) => {
                     return (
                       <div key={Math.random()} className="definitions">
                         {d.definition && (
-                          <div className="definition">
+                          <StyledSmall className="definition">
                             <p>Definition</p>
                             <h6>{d.definition}</h6>
-                          </div>
+                          </StyledSmall>
                         )}
                         {d.synonyms && (
-                          <div className="synonyms">
+                          <StyledSmall className="synonyms">
                             {d.synonyms &&
                               d.synonyms.map((s) => (
                                 <WordButtons
@@ -54,10 +54,10 @@ export const WordMeaning = ({ meanings }) => {
                                   <span className="synonym icon">S</span>
                                 </WordButtons>
                               ))}
-                          </div>
+                          </StyledSmall>
                         )}
                         {d.antonyms && (
-                          <div className="antonyms">
+                          <StyledSmall className="antonyms">
                             {d.antonyms &&
                               d.antonyms.map((a) => (
                                 <WordButtons
@@ -72,13 +72,13 @@ export const WordMeaning = ({ meanings }) => {
                                   <span className="antonym icon">A</span>
                                 </WordButtons>
                               ))}
-                          </div>
+                          </StyledSmall>
                         )}
                         {d.example && (
-                          <div className="examples">
+                          <StyledSmall className="examples">
                             <p>Examples</p>
                             <h6>{d.example}</h6>
-                          </div>
+                          </StyledSmall>
                         )}
                       </div>
                     );
@@ -88,6 +88,6 @@ export const WordMeaning = ({ meanings }) => {
           );
         })}
       {show && <Suggestions />}
-    </StyledMedium>
+    </StyledBig>
   );
 };
