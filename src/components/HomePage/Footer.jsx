@@ -3,7 +3,7 @@ import React from "react";
 import { StyledTitles, StyledSubtitles } from "../../styles/childs";
 import { StyledList, StyledFooter } from "../../styles/containers";
 // MUI
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 export const Footer = () => {
   return (
@@ -11,7 +11,9 @@ export const Footer = () => {
       <div>
         <StyledTitles>Developer</StyledTitles>
         <StyledSubtitles>
-          <a href="https://github.com/tia-cin" target="_blanck">Cintia Arce</a>
+          <a href="https://github.com/tia-cin" target="_blanck">
+            Cintia Arce
+          </a>
         </StyledSubtitles>
       </div>
       <div>
@@ -28,7 +30,7 @@ export const Footer = () => {
                 />
               </div>
               <div className="tech">
-                <KeyboardArrowUpIcon/>
+                <KeyboardArrowUpIcon />
                 <span>React</span>
               </div>
             </div>
@@ -46,7 +48,7 @@ export const Footer = () => {
                 />
               </div>
               <div className="tech">
-                <KeyboardArrowUpIcon/>
+                <KeyboardArrowUpIcon />
                 <span>Redux</span>
               </div>
             </div>
@@ -64,7 +66,7 @@ export const Footer = () => {
                 />
               </div>
               <div className="tech">
-                <KeyboardArrowUpIcon/>
+                <KeyboardArrowUpIcon />
                 <span>Material UI</span>
               </div>
             </div>
