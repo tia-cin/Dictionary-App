@@ -4,6 +4,7 @@ import {
   bigFonts,
   colorBlue,
   colorRed,
+  justifyCenter,
   mediaBase,
   smallFonts,
   styleFonts,
@@ -48,7 +49,7 @@ export const StyledInput = styled(TextField)`
 
 export const FailedMessage = styled(Alert)`
   display: flex;
-  justify-content: center;
+  ${justifyCenter}
   margin: 2em 0em;
   padding: 2em;
   background: ${colorRed}
@@ -65,14 +66,14 @@ export const FailedMessage = styled(Alert)`
 
 export const StyledCard = styled(Card)`
   display: flex;
-  justify-content: center;
+  ${justifyCenter}
   background: ${colorBlue}
   margin: 1em;
   padding: 1em 2em;
   width: 15%;
   h3 {
     color: white;
-    font-size: ${bigFonts}
+    font-size: ${bigFonts};
   }
   h4 {
     color: grey;

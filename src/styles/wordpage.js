@@ -1,6 +1,14 @@
 import { Button, Box, Stack } from "@mui/material";
 import { styled } from "@mui/system";
-import { colorBlue, colorOrange, colorRed, flexRow, styleFonts } from ".";
+import {
+  alignItemsCenter,
+  colorBlue,
+  colorOrange,
+  colorRed,
+  flexRow,
+  noTextDecoration,
+  styleFonts,
+} from ".";
 
 export const WordButtons = styled(Button)`
   margin: 0.5em 1em;
@@ -34,7 +42,7 @@ export const StyledMedium = styled(Stack)`
   margin: 0.5em;
   padding: 1em;
   ${styleFonts}
-  background: #f4d19b;
+  background: ${colorOrange}
   border-radius: 2em;
   .phonetics,
   .credits {
@@ -42,21 +50,21 @@ export const StyledMedium = styled(Stack)`
     border-radius: 2em;
     padding: 1em;
     ${flexRow}
-    align-items: center;
+    ${alignItemsCenter}
     justify-content: space-around;
   }
   .phonetic,
   .license,
   .credits > div {
     ${flexRow}
-    align-items: center;
+    ${alignItemsCenter}
     justify-content: space-between;
   }
   h5 {
     margin-right: 1em;
   }
   a {
-    text-decoration: none;
+    ${noTextDecoration}
     color: #191919;
     cursor: pointer;
   }

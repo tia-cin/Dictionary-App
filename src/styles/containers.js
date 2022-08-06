@@ -1,26 +1,30 @@
 import { Box, Container, Grid, List } from "@mui/material";
 import { styled } from "@mui/system";
 import {
+  alignCenter,
+  alignItemsCenter,
   colorBlue,
   colorOrange,
   extraSmallFonts,
   flexRow,
+  justifyCenter,
   mediaBase,
+  noTextDecoration,
   smallFonts,
   styleFonts,
 } from "./index";
 
 export const StyledContainer = styled(Container)`
   transform: translateY(10em);
-  justify-content: center;
-  align-self: center;
+  ${justifyCenter}
+  ${alignCenter}
 `;
 
 export const StyledBox = styled(Box)`
   margin: 1.5em;
   ${flexRow}
-  justify-content: center;
-  align-self: center;
+  ${justifyCenter}
+  ${alignCenter}
 `;
 
 export const StyledFooter = styled(Box)`
@@ -31,7 +35,7 @@ export const StyledFooter = styled(Box)`
   right: 0px;
   justify-content: space-around;
   a {
-    text-decoration: none;
+    ${noTextDecoration}
     color: #191919;
     cursor: pointer;
   }
@@ -45,11 +49,11 @@ export const StyledList = styled(List)`
     padding: 0 0.5em;
   }
   a {
-    text-decoration: none;
+    ${noTextDecoration}
   }
   .tech {
     ${flexRow}
-    align-items: center;
+    ${alignItemsCenter}
     background: ${colorBlue}
     padding-right: 0.8em;
     border-radius: 5em;
@@ -71,7 +75,7 @@ export const StyledList = styled(List)`
 
 export const StyledNavbar = styled(Box)`
   ${flexRow}
-  align-items: center;
+  ${alignItemsCenter}
   justify-content: space-around;
   position: fixed;
   top: 0;
@@ -93,7 +97,7 @@ export const StyledForm = styled(Box)`
   }
   #intruction {
     ${flexRow}
-    align-items: center;
+    ${alignItemsCenter}
     margin-right: 0.5em;
     background: ${colorBlue}
     padding-left: 0.8em;
@@ -117,6 +121,6 @@ export const StyledForm = styled(Box)`
 export const StyledCardContainer = styled(Grid)`
   margin: 5em 3em;
   a {
-    text-decoration: none;
+    ${noTextDecoration}
   }
 `;

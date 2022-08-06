@@ -1,9 +1,10 @@
-export const styleFonts = `
-    font-family: "Arial";
-    color: #191919;
-`;
+export const colorBlue = `#d7e9f7;`;
 
-export const bigFonts = `2em;`;
+export const colorRed = `#f9bc9f;`;
+
+export const colorOrange = `#f4d19b;`;
+
+export const bigFonts = `1.8em;`;
 
 export const mediumFonts = `1.4em;`;
 
@@ -11,16 +12,31 @@ export const smallFonts = `1em;`;
 
 export const extraSmallFonts = `.6em;`;
 
+export const noTextDecoration = `
+    text-decoration: none
+`;
+
+export const styleFonts = `
+    font-family: "Arial";
+    color: #191919;
+`;
+
+export const alignCenter = `
+    align-self: center;
+`;
+
+export const alignItemsCenter = `
+    align-items: center;
+`;
+
+export const justifyCenter = `
+    justify-content: scenter;
+`;
+
 export const flexRow = `
     display: flex;
     flex-direction: row;
 `;
-
-export const colorBlue = `#d7e9f7;`;
-
-export const colorRed = `#f9bc9f;`;
-
-export const colorOrange = `#f4d19b;`;
 
 export const mediaBase = `
     opacity: 0;
