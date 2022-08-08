@@ -6,6 +6,7 @@ import {
   colorRed,
   justifyCenter,
   mediaBase,
+  noTextDecoration,
   smallFonts,
   styleFonts,
 } from "./index";
@@ -14,12 +15,14 @@ export const StyledTitles = styled(Typography)`
   ${styleFonts}
   font-weight: 500;
   font-size: ${bigFonts};
+  ${noTextDecoration}
 `;
 
 export const StyledSubtitles = styled(Typography)`
   max-width: 20em;
   font-weight: 400;
   font-size: ${smallFonts} ${styleFonts};
+  ${noTextDecoration}
 `;
 
 export const LinkButton = styled(Button)`

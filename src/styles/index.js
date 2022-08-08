@@ -13,7 +13,7 @@ export const smallFonts = `1em;`;
 export const extraSmallFonts = `.6em;`;
 
 export const noTextDecoration = `
-    text-decoration: none
+    text-decoration: none;
 `;
 
 export const styleFonts = `
