@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
-import { getAntonyms, getSynonyms } from "../../actions/actions";
+import { getAntonyms, getSynonyms } from "../../redux/actions/actions";
 // components
 import { Suggestions } from "../Cards/Suggestions";
 // styles
 import { WordButtons, StyledBig, StyledSmall } from "../../styles/wordpage";
 // MUI
-import { Modal } from '@mui/material';
+import { Modal } from "@mui/material";
 
 export const WordMeaning = ({ meanings }) => {
   const dispatch = useDispatch();
@@ -50,8 +50,8 @@ export const WordMeaning = ({ meanings }) => {
                                 <WordButtons
                                   key={s}
                                   onClick={(e) => {
-                                    handleSynonyms(e.target.value); 
-                                    handleOpen()
+                                    handleSynonyms(e.target.value);
+                                    handleOpen();
                                   }}
                                   value={s}
                                   variant="contained"
@@ -94,7 +94,7 @@ export const WordMeaning = ({ meanings }) => {
           );
         })}
       <Modal open={show} onClose={handleClose}>
-        <Suggestions/>
+        <Suggestions />
       </Modal>
     </StyledBig>
   );
