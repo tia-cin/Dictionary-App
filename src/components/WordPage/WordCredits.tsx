@@ -1,3 +1,4 @@
+import { Grid } from "@mui/material";
 import React from "react";
 import { License } from "../../types";
 
@@ -11,7 +12,7 @@ export const WordCredits: React.FC<WordCreditsProps> = ({
   sourceUrls,
 }) => {
   return (
-    <div>
+    <Grid item container>
       <h2>Credits</h2>
       {license && sourceUrls && (
         <div className="credits">
@@ -36,6 +37,6 @@ export const WordCredits: React.FC<WordCreditsProps> = ({
           )}
         </div>
       )}
-    </div>
+    </Grid>
   );
 };

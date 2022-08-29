@@ -1,12 +1,5 @@
 import { ThunkAction } from "redux-thunk";
-import {
-  Actions,
-  FAILED_MESSAGE,
-  GET_ANTONTMS,
-  GET_DETAIL,
-  GET_SYNONYMS,
-  SEARCH_WORD,
-} from "../types";
+import { Actions, FAILED_MESSAGE, GET_DETAIL, SEARCH_WORD } from "../types";
 import { RootReducer } from "./store";
 
 const axios = require("axios");
@@ -60,37 +53,5 @@ export const getDetail = (
       type: GET_DETAIL,
       payload: id,
     });
-  };
-};
-
-export const getSynonyms = (
-  synonym: string
-): ThunkAction<void, RootReducer, null, Actions> => {
-  return async (dispatch) => {
-    try {
-      let res = await apiCall(synonym);
-      return dispatch({
-        type: GET_SYNONYMS,
-        payload: res,
-      });
-    } catch (e: any) {
-      dispatch({ type: FAILED_MESSAGE, payload: e.response.data });
-    }
-  };
-};
-
-export const getAntonyms = (
-  antonym: string
-): ThunkAction<void, RootReducer, null, Actions> => {
-  return async (dispatch) => {
-    try {
-      let res = await apiCall(antonym);
-      return dispatch({
-        type: GET_ANTONTMS,
-        payload: res,
-      });
-    } catch (e: any) {
-      dispatch({ type: FAILED_MESSAGE, payload: e.response.data });
-    }
   };
 };

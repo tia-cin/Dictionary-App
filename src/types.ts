@@ -1,7 +1,5 @@
 export const SEARCH_WORD = "SEARCH_WORD";
 export const GET_DETAIL = "GET_DETAIL";
-export const GET_SYNONYMS = "GET_SYNONYMS";
-export const GET_ANTONTMS = "GET_ANTONTMS";
 export const FAILED_MESSAGE = "FAILED_MESSAGE";
 
 export interface Definitions {
@@ -48,10 +46,7 @@ export interface WordAlert {
 
 export interface WordState {
   words: WordData[];
-  antonyms: WordData[];
-  synonyms: WordData[];
   detail: WordData[] | null;
-  suggestions: WordData[];
   failedMessage: WordAlert | null;
 }
 
@@ -65,24 +60,9 @@ interface GetDetailAction {
   payload: number;
 }
 
-interface GetSynonymsAction {
-  type: typeof GET_SYNONYMS;
-  payload: WordData[];
-}
-
-interface GetAntonymsAction {
-  type: typeof GET_ANTONTMS;
-  payload: WordData[];
-}
-
 interface FailedMessageAction {
   type: typeof FAILED_MESSAGE;
   payload: string;
 }
 
-export type Actions =
-  | SearchWordsAction
-  | GetDetailAction
-  | GetSynonymsAction
-  | GetAntonymsAction
-  | FailedMessageAction;
+export type Actions = SearchWordsAction | GetDetailAction | FailedMessageAction;

@@ -1,3 +1,4 @@
+import { Grid } from "@mui/material";
 import React from "react";
 import { Phonetics } from "../../types";
 
@@ -7,7 +8,7 @@ interface WordPhoneticsProps {
 
 export const WordPhonetic: React.FC<WordPhoneticsProps> = ({ phonetics }) => {
   return (
-    <div>
+    <Grid item container>
       <h2>Phonetics</h2>
       {phonetics &&
         phonetics.map((p) => {
@@ -32,6 +33,6 @@ export const WordPhonetic: React.FC<WordPhoneticsProps> = ({ phonetics }) => {
             </section>
           );
         })}
-    </div>
+    </Grid>
   );
 };

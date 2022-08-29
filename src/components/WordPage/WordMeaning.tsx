@@ -1,10 +1,6 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux/es/hooks/useDispatch";
-import { getAntonyms, getSynonyms } from "../../redux/actions";
-// components
-import { Suggestions } from "../Cards/Suggestions";
+import React from "react";
 // MUI
-import { Modal } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { Meanings } from "../../types";
 
 interface WordMeaningProps {
@@ -12,94 +8,52 @@ interface WordMeaningProps {
 }
 
 export const WordMeaning: React.FC<WordMeaningProps> = ({ meanings }) => {
-  const dispatch = useDispatch();
-  const [show, setShow] = useState(false);
-
-  const handleOpen = (): void => setShow(true);
-
-  const handleClose = (): void => setShow(false);
-
-  const handleSynonyms = (value: string): void => {
-    dispatch<any>(getSynonyms(value));
-    setShow(!show);
+  const addButtons = (array: Array<any>, letter: string) => {
+    return array.map((a) => (
+      <button>
+        {a}
+        <span className="synonym icon">{letter}</span>
+      </button>
+    ));
   };
 
-  const handleAntonyms = (value: string): void => {
-    dispatch<any>(getAntonyms(value));
-    setShow(!show);
+  const addSection = (title: string, value: string) => {
+    return (
+      <section>
+        <p>{title}</p>
+        <h6>{value}</h6>
+      </section>
+    );
   };
 
   return (
-    <div>
-      <h2>Meanings</h2>
+    <Grid item container>
+      <Grid item>
+        <Typography variant="h2">Meanings</Typography>
+      </Grid>
       {meanings &&
         meanings.map((m) => {
           return (
             <div key={Math.random()} className="meanings">
-              <h3>Part of Speech: "{m.partOfSpeech}"</h3>
+              {addSection("Part of Speech", m.partOfSpeech)}
               <div>
                 {m.definitions &&
                   m.definitions.map((d) => {
                     return (
                       <div key={Math.random()} className="definitions">
-                        {d.definition && (
-                          <div className="definition">
-                            <p>Definition</p>
-                            <h6>{d.definition}</h6>
-                          </div>
-                        )}
-                        {d.synonyms && (
-                          <div className="synonyms">
-                            {d.synonyms &&
-                              d.synonyms.map((s: string, i: number) => (
-                                <button
-                                  key={i}
-                                  onClick={(e: any) => {
-                                    handleSynonyms(e.target.value);
-                                    handleOpen();
-                                  }}
-                                  value={s}
-                                >
-                                  {s}
-                                  <span className="synonym icon">S</span>
-                                </button>
-                              ))}
-                          </div>
-                        )}
-                        {d.antonyms && (
-                          <div className="antonyms">
-                            {d.antonyms &&
-                              d.antonyms.map((a: string, i: number) => (
-                                <button
-                                  key={i}
-                                  onClick={(e: any) => {
-                                    handleAntonyms(e.target.value);
-                                    handleOpen();
-                                  }}
-                                  value={a}
-                                >
-                                  {a}
-                                  <span className="antonym icon">A</span>
-                                </button>
-                              ))}
-                          </div>
-                        )}
-                        {d.example && (
-                          <div className="examples">
-                            <p>Examples</p>
-                            <h6>{d.example}</h6>
-                          </div>
-                        )}
+                        {d.definition && addSection("Definition", d.definition)}
+                        {d.synonyms && addButtons(d.synonyms, "S")}
+                        {d.antonyms && addButtons(d.antonyms, "A")}
+                        {d.example && addSection("Example", d.example)}
                       </div>
                     );
                   })}
               </div>
+              {addButtons(m.synonyms, "S")}
+              {addButtons(m.antonyms, "A")}
             </div>
           );
         })}
-      <Modal open={show} onClose={handleClose}>
-        <Suggestions />
-      </Modal>
-    </div>
+    </Grid>
   );
 };

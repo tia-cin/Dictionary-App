@@ -1,4 +1,5 @@
 import React from "react";
+import { Grid, Typography } from "@mui/material";
 
 interface WordTitleProps {
   title: string;
@@ -7,15 +8,17 @@ interface WordTitleProps {
 
 export const WordTitle: React.FC<WordTitleProps> = ({ title, phonetic }) => {
   return (
-    <div>
-      <div>{title}</div>
-      <div>
-        {Array.isArray(phonetic) ? (
-          phonetic.map((p) => <div key={p}>{p}</div>)
-        ) : (
-          <div>{phonetic}</div>
-        )}
-      </div>
-    </div>
+    <Grid item container alignItems="center" direction="column">
+      <Typography variant="h1">{title}</Typography>
+      {Array.isArray(phonetic) ? (
+        phonetic.map((p) => (
+          <Typography key={p} variant="h2">
+            {p}
+          </Typography>
+        ))
+      ) : (
+        <Typography variant="h4">{phonetic}</Typography>
+      )}
+    </Grid>
   );
 };
