@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux/es/exports";
-import { searchWords } from "../../redux/actions/actions";
+import { searchWords } from "../../redux/actions";
 // styles
 import { StyledInput } from "../../styles/childs";
 import { StyledForm } from "../../styles/containers";
