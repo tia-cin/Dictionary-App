@@ -1,18 +1,19 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React from "react";
+import { useSelector } from "react-redux";
+import logo from "../../assets/dictionary.png";
 // components
-import { Footer } from './Footer';
-import { Navbar } from './Navbar';
-import { CardsContainer } from '../Cards/CardsContainer';
+import { SearchBar } from "./SearchBar";
+import { CardsContainer } from "../Cards/CardsContainer";
 
 export const Home = () => {
-    const { words } = useSelector(state => state);
-    return (
-        <div>
-            <Navbar/>
-            {console.log(words)}
-            <CardsContainer words={words}/>
-            <Footer/>
-        </div>
-    )
+  const { words } = useSelector((state) => state);
+  return (
+    <div>
+      <div>
+        <img src={logo} alt="dictionary-logo" width="100" />
+      </div>
+      <SearchBar />
+      <CardsContainer words={words} />
+    </div>
+  );
 };

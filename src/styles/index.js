@@ -17,7 +17,7 @@ export const noTextDecoration = `
 `;
 
 export const styleFonts = `
-    font-family: "Arial";
+    font-family: "Crimson Pro", serif;
     color: #191919;
 `;
 
