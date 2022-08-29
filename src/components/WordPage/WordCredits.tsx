@@ -1,6 +1,15 @@
 import React from "react";
+import { License } from "../../types";
 
-export const WordCredits = ({ license, sourceUrls }) => {
+interface WordCreditsProps {
+  license: License;
+  sourceUrls: Array<string>;
+}
+
+export const WordCredits: React.FC<WordCreditsProps> = ({
+  license,
+  sourceUrls,
+}) => {
   return (
     <div>
       <h2>Credits</h2>

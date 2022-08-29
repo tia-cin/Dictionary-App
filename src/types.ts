@@ -4,35 +4,39 @@ export const GET_SYNONYMS = "GET_SYNONYMS";
 export const GET_ANTONTMS = "GET_ANTONTMS";
 export const FAILED_MESSAGE = "FAILED_MESSAGE";
 
-interface Definitions {
+export interface Definitions {
   definition: string;
   synonyms: Array<string>;
   antonyms: Array<string>;
   example?: string;
 }
 
-interface License {
+export interface Meanings {
+  partOfSpeech: string;
+  definitions: Definitions[];
+  synonyms: Array<string>;
+  antonyms: Array<string>;
+}
+
+export interface License {
   name: string;
   url: string;
+}
+
+export interface Phonetics {
+  text?: string;
+  audio?: string;
+  sourceUrl?: string;
+  license?: License;
 }
 
 export interface WordData {
   word: string;
   phonetic?: string | Array<string>;
-  phonetics: Array<{
-    text?: string;
-    audio?: string;
-    sourceUrl?: string;
-    license?: License;
-  }>;
-  meanings: Array<{
-    partOfSpeech: string;
-    definitions: Definitions[];
-    synonyms: Array<string>;
-    antonyms: Array<string>;
-  }>;
+  phonetics: Phonetics[];
+  meanings: Meanings[];
   license: License;
-  sourceUrls: string;
+  sourceUrls: Array<string>;
   id: number;
 }
 

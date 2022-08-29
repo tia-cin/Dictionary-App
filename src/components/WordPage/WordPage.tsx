@@ -1,21 +1,22 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux/es/exports";
 import { useParams } from "react-router-dom";
-import { getDetail } from "../../redux/actions.ts";
+import { getDetail } from "../../redux/actions";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 // components
 import { WordCredits } from "./WordCredits";
 import { WordMeaning } from "./WordMeaning";
 import { WordPhonetic } from "./WordPhonetic";
 import { WordTitle } from "./WordTitle";
+import { RootReducer } from "../../redux/store";
 
 export const WordPage = () => {
   const dispatch = useDispatch();
   const { wordId } = useParams();
-  const { detail } = useSelector((state) => state);
+  const { detail } = useSelector((state: RootReducer) => state);
 
   useEffect(() => {
-    dispatch(getDetail(wordId));
+    dispatch<any>(getDetail(Number(wordId)));
   }, [dispatch, wordId]);
 
   return (

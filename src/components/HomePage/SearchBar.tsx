@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux/es/exports";
-import { searchWords } from "../../redux/actions.ts";
+import { searchWords } from "../../redux/actions";
 // MUI
 import SearchIcon from "@mui/icons-material/Search";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 export const SearchBar = () => {
-  const [searchWord, setSearchWord] = useState("");
+  const [searchWord, setSearchWord] = useState<string>("");
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
-    dispatch(searchWords(searchWord));
+    dispatch<any>(searchWords(searchWord));
     setSearchWord("");
   };
 

@@ -1,14 +1,19 @@
 import React from "react";
+import { Phonetics } from "../../types";
 
-export const WordPhonetic = ({ phonetics }) => {
+interface WordPhoneticsProps {
+  phonetics: Phonetics[];
+}
+
+export const WordPhonetic: React.FC<WordPhoneticsProps> = ({ phonetics }) => {
   return (
     <div>
       <h2>Phonetics</h2>
       {phonetics &&
         phonetics.map((p) => {
           return (
-            <section class="phonetics" key={Math.random()}>
-              <div class="phonetic">
+            <section className="phonetics" key={Math.random()}>
+              <div className="phonetic">
                 <h5>{p.text}</h5>
                 {p.audio && (
                   <div>

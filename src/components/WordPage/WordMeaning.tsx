@@ -1,26 +1,31 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
-import { getAntonyms, getSynonyms } from "../../redux/actions.ts";
+import { getAntonyms, getSynonyms } from "../../redux/actions";
 // components
 import { Suggestions } from "../Cards/Suggestions";
 // MUI
 import { Modal } from "@mui/material";
+import { Meanings } from "../../types";
 
-export const WordMeaning = ({ meanings }) => {
+interface WordMeaningProps {
+  meanings: Meanings[];
+}
+
+export const WordMeaning: React.FC<WordMeaningProps> = ({ meanings }) => {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
 
-  const handleOpen = () => setShow(true);
+  const handleOpen = (): void => setShow(true);
 
-  const handleClose = () => setShow(false);
+  const handleClose = (): void => setShow(false);
 
-  const handleSynonyms = (value) => {
-    dispatch(getSynonyms(value));
+  const handleSynonyms = (value: string): void => {
+    dispatch<any>(getSynonyms(value));
     setShow(!show);
   };
 
-  const handleAntonyms = (value) => {
-    dispatch(getAntonyms(value));
+  const handleAntonyms = (value: string): void => {
+    dispatch<any>(getAntonyms(value));
     setShow(!show);
   };
 
@@ -46,37 +51,36 @@ export const WordMeaning = ({ meanings }) => {
                         {d.synonyms && (
                           <div className="synonyms">
                             {d.synonyms &&
-                              d.synonyms.map((s) => (
-                                <div
-                                  key={s}
-                                  onClick={(e) => {
+                              d.synonyms.map((s: string, i: number) => (
+                                <button
+                                  key={i}
+                                  onClick={(e: any) => {
                                     handleSynonyms(e.target.value);
                                     handleOpen();
                                   }}
                                   value={s}
-                                  variant="contained"
                                 >
                                   {s}
                                   <span className="synonym icon">S</span>
-                                </div>
+                                </button>
                               ))}
                           </div>
                         )}
                         {d.antonyms && (
                           <div className="antonyms">
                             {d.antonyms &&
-                              d.antonyms.map((a) => (
-                                <div
-                                  key={a}
-                                  onClick={(e) =>
-                                    handleAntonyms(e.target.value)
-                                  }
+                              d.antonyms.map((a: string, i: number) => (
+                                <button
+                                  key={i}
+                                  onClick={(e: any) => {
+                                    handleAntonyms(e.target.value);
+                                    handleOpen();
+                                  }}
                                   value={a}
-                                  variant="contained"
                                 >
                                   {a}
                                   <span className="antonym icon">A</span>
-                                </div>
+                                </button>
                               ))}
                           </div>
                         )}
