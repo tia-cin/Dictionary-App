@@ -4,25 +4,50 @@ export const GET_SYNONYMS = "GET_SYNONYMS";
 export const GET_ANTONTMS = "GET_ANTONTMS";
 export const FAILED_MESSAGE = "FAILED_MESSAGE";
 
+interface Definitions {
+  definition: string;
+  synonyms: Array<string>;
+  antonyms: Array<string>;
+  example?: string;
+}
+
+interface License {
+  name: string;
+  url: string;
+}
+
 export interface WordData {
   word: string;
-  phonetic: {};
-  phonetics: [];
-  origin: {};
-  meanings: [];
-  license: {};
-  sourceUrls: {};
+  phonetic?: string | Array<string>;
+  phonetics: Array<{
+    text?: string;
+    audio?: string;
+    sourceUrl?: string;
+    license?: License;
+  }>;
+  meanings: Array<{
+    partOfSpeech: string;
+    definitions: Definitions[];
+    synonyms: Array<string>;
+    antonyms: Array<string>;
+  }>;
+  license: License;
+  sourceUrls: string;
   id: number;
 }
 
-export interface WordAlert {}
+export interface WordAlert {
+  title: string;
+  message: string;
+  resolution: string;
+}
 
 export interface WordState {
-  words: Array<WordData>;
-  antonyms: Array<WordData>;
-  synonyms: Array<WordData>;
+  words: WordData[];
+  antonyms: WordData[];
+  synonyms: WordData[];
   detail: WordData[] | null;
-  suggestions: Array<WordData>;
+  suggestions: WordData[];
   failedMessage: WordAlert;
 }
 

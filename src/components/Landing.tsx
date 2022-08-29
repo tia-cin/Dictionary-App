@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 // MUI
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
-export const Landing = () => {
+export const Landing: React.FC = () => {
   return (
     <div>
       <div>

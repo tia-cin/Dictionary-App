@@ -1,8 +1,13 @@
 import React from "react";
+import { WordAlert, WordData } from "../../types";
 // components
 import { Card } from "./Card";
 
-export const CardsContainer = ({ words }) => {
+interface CardsContainerProps {
+  words: WordData[] | WordAlert;
+}
+
+export const CardsContainer: React.FC<CardsContainerProps> = ({ words }) => {
   return (
     <div>
       {Array.isArray(words) ? (

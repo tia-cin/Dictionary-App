@@ -1,7 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const Card = ({ word }) => {
+import { WordData } from "../../types";
+
+interface CardProps {
+  word: WordData;
+}
+
+export const Card: React.FC<CardProps> = ({ word }) => {
   return (
     <div>
       <Link to={`/definitions/${word.id}`}>

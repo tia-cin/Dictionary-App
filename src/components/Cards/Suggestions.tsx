@@ -1,7 +1,9 @@
 import { useSelector } from "react-redux";
+import { RootReducer } from "../../redux/store";
 
 export const Suggestions = () => {
-  const { suggestions } = useSelector((state) => state);
+  const { suggestions } = useSelector((state: RootReducer) => state);
+
   return (
     <div>
       <h2>Suggestions</h2>

@@ -4,9 +4,11 @@ import logo from "../../assets/dictionary.png";
 // components
 import { SearchBar } from "./SearchBar";
 import { CardsContainer } from "../Cards/CardsContainer";
+import { RootReducer } from "../../redux/store";
 
 export const Home = () => {
-  const { words } = useSelector((state) => state);
+  const { words } = useSelector((state: RootReducer) => state);
+
   return (
     <div>
       <div>
