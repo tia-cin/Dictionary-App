@@ -52,7 +52,7 @@ export interface WordState {
   synonyms: WordData[];
   detail: WordData[] | null;
   suggestions: WordData[];
-  failedMessage: WordAlert;
+  failedMessage: WordAlert | null;
 }
 
 interface SearchWordsAction {

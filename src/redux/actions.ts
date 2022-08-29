@@ -1,6 +1,7 @@
 import { ThunkAction } from "redux-thunk";
 import {
   Actions,
+  FAILED_MESSAGE,
   GET_ANTONTMS,
   GET_DETAIL,
   GET_SYNONYMS,
@@ -31,7 +32,7 @@ const apiCall = async (input: string) => {
       });
     return res;
   } catch (error: any) {
-    return error.response.data;
+    return error;
   }
 };
 
@@ -46,7 +47,7 @@ export const searchWords = (
         payload: res,
       });
     } catch (e: any) {
-      console.log(e.message);
+      dispatch({ type: FAILED_MESSAGE, payload: e.response.data });
     }
   };
 };
@@ -72,8 +73,8 @@ export const getSynonyms = (
         type: GET_SYNONYMS,
         payload: res,
       });
-    } catch (e) {
-      console.log(e);
+    } catch (e: any) {
+      dispatch({ type: FAILED_MESSAGE, payload: e.response.data });
     }
   };
 };
@@ -88,8 +89,8 @@ export const getAntonyms = (
         type: GET_ANTONTMS,
         payload: res,
       });
-    } catch (e) {
-      console.log(e);
+    } catch (e: any) {
+      dispatch({ type: FAILED_MESSAGE, payload: e.response.data });
     }
   };
 };

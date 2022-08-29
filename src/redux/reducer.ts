@@ -1,4 +1,4 @@
-import { Actions, WordState } from "../types";
+import { Actions, FAILED_MESSAGE, WordState } from "../types";
 import { GET_ANTONTMS, GET_DETAIL, GET_SYNONYMS, SEARCH_WORD } from "../types";
 
 const initialState: WordState = {
@@ -7,7 +7,7 @@ const initialState: WordState = {
   synonyms: [],
   detail: null,
   suggestions: [],
-  failedMessage: {},
+  failedMessage: null,
 };
 
 export const rootReducer = (
