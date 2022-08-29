@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
-import { getAntonyms, getSynonyms } from "../../redux/actions";
+import { getAntonyms, getSynonyms } from "../../redux/actions.ts";
 // components
 import { Suggestions } from "../Cards/Suggestions";
 // MUI

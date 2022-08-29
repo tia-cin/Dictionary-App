@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux/es/exports";
 import { useParams } from "react-router-dom";
-import { getDetail } from "../../redux/actions";
+import { getDetail } from "../../redux/actions.ts";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 // components
 import { WordCredits } from "./WordCredits";
