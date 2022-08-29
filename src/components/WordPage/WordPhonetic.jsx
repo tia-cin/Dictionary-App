@@ -1,10 +1,8 @@
 import React from "react";
-// styles
-import { StyledMedium } from "../../styles/wordpage";
 
 export const WordPhonetic = ({ phonetics }) => {
   return (
-    <StyledMedium>
+    <div>
       <h2>Phonetics</h2>
       {phonetics &&
         phonetics.map((p) => {
@@ -29,6 +27,6 @@ export const WordPhonetic = ({ phonetics }) => {
             </section>
           );
         })}
-    </StyledMedium>
+    </div>
   );
 };

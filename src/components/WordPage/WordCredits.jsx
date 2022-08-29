@@ -1,14 +1,11 @@
 import React from "react";
-// styles
-import { StyledMedium } from "../../styles/wordpage";
 
 export const WordCredits = ({ license, sourceUrls }) => {
   return (
-    <StyledMedium>
+    <div>
       <h2>Credits</h2>
       {license && sourceUrls && (
         <div className="credits">
-          
           {license && (
             <div>
               <h5>License:</h5>
@@ -30,6 +27,6 @@ export const WordCredits = ({ license, sourceUrls }) => {
           )}
         </div>
       )}
-    </StyledMedium>
+    </div>
   );
 };

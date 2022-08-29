@@ -1,12 +1,9 @@
 import { useSelector } from "react-redux";
-import { StyledModal } from "../../styles/wordpage";
 
 export const Suggestions = () => {
   const { suggestions } = useSelector((state) => state);
   return (
-    <StyledModal  sx={{
-      height: 600
-    }}>
+    <div>
       <h2>Suggestions</h2>
       {suggestions &&
         suggestions.map((a, i) => {
@@ -24,12 +21,12 @@ export const Suggestions = () => {
                           m.definitions.map((d) => {
                             return (
                               <div key={Math.random()}>
-                                  {d.definition && (
-                                    <div className="definition">
-                                      <p>Definition</p>
-                                      <h6>{d.definition}</h6>
-                                    </div>
-                                  )}
+                                {d.definition && (
+                                  <div className="definition">
+                                    <p>Definition</p>
+                                    <h6>{d.definition}</h6>
+                                  </div>
+                                )}
                                 {d.example && (
                                   <div className="example">
                                     <p>Example</p>
@@ -46,6 +43,6 @@ export const Suggestions = () => {
             </div>
           );
         })}
-    </StyledModal>
+    </div>
   );
 };
