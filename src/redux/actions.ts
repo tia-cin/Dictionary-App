@@ -1,18 +1,23 @@
-export const SEARCH_WORD = "SEARCH_WORD";
-export const GET_DETAIL = "GET_DETAIL";
-export const GET_SYNONYMS = "GET_SYNONYMS";
-export const GET_ANTONTMS = "GET_ANTONTMS";
-export const FAILED_MESSAGE = "FAILED_MESSAGE";
+import { ThunkAction } from "redux-thunk";
+import {
+  Actions,
+  GET_ANTONTMS,
+  GET_DETAIL,
+  GET_SYNONYMS,
+  SEARCH_WORD,
+} from "../types";
+import { RootReducer } from "./store";
 
 const axios = require("axios");
 
-const apiCall = async (input) => {
-    try {
-      const req = await axios.get(
-        `https://api.dictionaryapi.dev/api/v2/entries/en/${input}`
-      );
-      let res = (await req.data) &&
-      req.data.map((r) => {
+const apiCall = async (input: string) => {
+  try {
+    const req = await axios.get(
+      `https://api.dictionaryapi.dev/api/v2/entries/en/${input}`
+    );
+    let res =
+      (await req.data) &&
+      req.data.map((r: any) => {
         return {
           word: r.word,
           phonetic: r.phonetic ? r.phonetic : null,
@@ -24,13 +29,15 @@ const apiCall = async (input) => {
           id: Math.floor(Math.random() * 100000) + 1,
         };
       });
-      return res;
-    } catch (error) {
-      return error.response.data
-    }
+    return res;
+  } catch (error: any) {
+    return error.response.data;
+  }
 };
 
-export const searchWords = (input) => {
+export const searchWords = (
+  input: string
+): ThunkAction<void, RootReducer, null, Actions> => {
   return async (dispatch) => {
     try {
       let res = await apiCall(input);
@@ -38,13 +45,15 @@ export const searchWords = (input) => {
         type: SEARCH_WORD,
         payload: res,
       });
-    } catch (e) {
+    } catch (e: any) {
       console.log(e.message);
     }
   };
 };
 
-export const getDetail = (id) => {
+export const getDetail = (
+  id: number
+): ThunkAction<void, RootReducer, null, Actions> => {
   return (dispatch) => {
     return dispatch({
       type: GET_DETAIL,
@@ -53,7 +62,9 @@ export const getDetail = (id) => {
   };
 };
 
-export const getSynonyms = (synonym) => {
+export const getSynonyms = (
+  synonym: string
+): ThunkAction<void, RootReducer, null, Actions> => {
   return async (dispatch) => {
     try {
       let res = await apiCall(synonym);
@@ -67,7 +78,9 @@ export const getSynonyms = (synonym) => {
   };
 };
 
-export const getAntonyms = (antonym) => {
+export const getAntonyms = (
+  antonym: string
+): ThunkAction<void, RootReducer, null, Actions> => {
   return async (dispatch) => {
     try {
       let res = await apiCall(antonym);
