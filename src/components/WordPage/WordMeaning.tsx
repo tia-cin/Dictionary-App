@@ -1,6 +1,6 @@
 import React from "react";
 // MUI
-import { Grid, Typography } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 import { Meanings } from "../../types";
 
 interface WordMeaningProps {
@@ -8,52 +8,69 @@ interface WordMeaningProps {
 }
 
 export const WordMeaning: React.FC<WordMeaningProps> = ({ meanings }) => {
-  const addButtons = (array: Array<any>, letter: string) => {
-    return array.map((a) => (
-      <button>
-        {a}
-        <span className="synonym icon">{letter}</span>
-      </button>
-    ));
-  };
-
-  const addSection = (title: string, value: string) => {
+  const addButtons = (array: Array<any>, title: string) => {
     return (
-      <section>
-        <p>{title}</p>
-        <h6>{value}</h6>
-      </section>
+      <Grid item container>
+        <Grid item container>
+          <Typography>{title}</Typography>
+        </Grid>
+        <Grid item container>
+          {array.map((a) => (
+            <Button variant="outlined">{a}</Button>
+          ))}
+        </Grid>
+      </Grid>
     );
   };
 
   return (
-    <Grid item container>
-      <Grid item>
+    <Grid
+      item
+      container
+      direction="column"
+      alignItems="center"
+      sx={{ backgroundColor: "#f4d19b" }}
+    >
+      <Grid item container justifyContent="center">
         <Typography variant="h2">Meanings</Typography>
       </Grid>
-      {meanings &&
-        meanings.map((m) => {
-          return (
-            <div key={Math.random()} className="meanings">
-              {addSection("Part of Speech", m.partOfSpeech)}
-              <div>
-                {m.definitions &&
-                  m.definitions.map((d) => {
-                    return (
-                      <div key={Math.random()} className="definitions">
-                        {d.definition && addSection("Definition", d.definition)}
-                        {d.synonyms && addButtons(d.synonyms, "S")}
-                        {d.antonyms && addButtons(d.antonyms, "A")}
-                        {d.example && addSection("Example", d.example)}
-                      </div>
-                    );
-                  })}
-              </div>
-              {addButtons(m.synonyms, "S")}
-              {addButtons(m.antonyms, "A")}
-            </div>
-          );
-        })}
+      <Grid item container justifyContent="center">
+        {meanings &&
+          meanings.map((m) => {
+            return (
+              <Grid item container key={Math.random()}>
+                <Grid item container>
+                  <Typography variant="subtitle1">
+                    Part of Speech
+                    <Typography variant="subtitle2">
+                      {m.partOfSpeech}
+                    </Typography>
+                  </Typography>
+                </Grid>
+                <Grid item container>
+                  <Grid item container>
+                    <Typography variant="subtitle1">Definitions</Typography>
+                  </Grid>
+                  {m.definitions &&
+                    m.definitions.map((d) => {
+                      return (
+                        <Grid item container key={Math.random()}>
+                          <Typography variant="subtitle2">
+                            {d.definition}
+                          </Typography>
+                          <Typography variant="subtitle2">
+                            "{d.example}"
+                          </Typography>
+                        </Grid>
+                      );
+                    })}
+                </Grid>
+                {addButtons(m.synonyms, "Synonyms")}
+                {addButtons(m.antonyms, "Antonyms")}
+              </Grid>
+            );
+          })}
+      </Grid>
     </Grid>
   );
 };
