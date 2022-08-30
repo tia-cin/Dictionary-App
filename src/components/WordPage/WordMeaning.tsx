@@ -10,11 +10,11 @@ interface WordMeaningProps {
 export const WordMeaning: React.FC<WordMeaningProps> = ({ meanings }) => {
   const addButtons = (array: Array<any>, title: string) => {
     return (
-      <Grid item container>
+      <Grid item xs={8}>
         <Grid item container>
           <Typography>{title}</Typography>
         </Grid>
-        <Grid item container>
+        <Grid item>
           {array.map((a) => (
             <Button variant="outlined">{a}</Button>
           ))}
@@ -29,37 +29,51 @@ export const WordMeaning: React.FC<WordMeaningProps> = ({ meanings }) => {
       container
       direction="column"
       alignItems="center"
-      sx={{ backgroundColor: "#f4d19b" }}
+      sx={{ backgroundColor: "#f4d19b", padding: "1em" }}
     >
       <Grid item container justifyContent="center">
         <Typography variant="h2">Meanings</Typography>
       </Grid>
-      <Grid item container justifyContent="center">
+      <Grid
+        item
+        container
+        direction="row"
+        spacing={2}
+        justifyContent="space-around"
+      >
         {meanings &&
           meanings.map((m) => {
             return (
-              <Grid item container key={Math.random()}>
-                <Grid item container>
-                  <Typography variant="subtitle1">
-                    Part of Speech
-                    <Typography variant="subtitle2">
-                      {m.partOfSpeech}
-                    </Typography>
-                  </Typography>
+              <Grid
+                container
+                spacing={2}
+                columns={16}
+                key={Math.random()}
+                sx={{
+                  margin: ".5em",
+                  borderColor: "#191919",
+                  border: "1px solid",
+                  borderRadius: "2em",
+                  padding: "1em",
+                }}
+              >
+                <Grid item direction="column" xs={8}>
+                  <Typography variant="subtitle1">Part of Speech</Typography>
+                  <Typography variant="subtitle2">{m.partOfSpeech}</Typography>
                 </Grid>
-                <Grid item container>
-                  <Grid item container>
+                <Grid item xs={8}>
+                  <Grid item>
                     <Typography variant="subtitle1">Definitions</Typography>
                   </Grid>
                   {m.definitions &&
                     m.definitions.map((d) => {
                       return (
-                        <Grid item container key={Math.random()}>
+                        <Grid item direction="column" key={Math.random()}>
                           <Typography variant="subtitle2">
                             {d.definition}
                           </Typography>
                           <Typography variant="subtitle2">
-                            "{d.example}"
+                            "{d.example ? d.example : "No Example"}"
                           </Typography>
                         </Grid>
                       );
