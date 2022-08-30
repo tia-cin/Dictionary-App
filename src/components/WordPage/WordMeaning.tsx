@@ -1,7 +1,7 @@
 import React from "react";
+import { Meanings } from "../../types";
 // MUI
 import { Button, Grid, Typography } from "@mui/material";
-import { Meanings } from "../../types";
 
 interface WordMeaningProps {
   meanings: Meanings[];

@@ -5,17 +5,19 @@ import logo from "../../assets/dictionary.png";
 import { SearchBar } from "./SearchBar";
 import { CardsContainer } from "../Cards/CardsContainer";
 import { RootReducer } from "../../redux/store";
+// MUI
+import { Grid } from "@mui/material";
 
 export const Home: React.FC = () => {
   const { words } = useSelector((state: RootReducer) => state);
 
   return (
-    <div>
-      <div>
+    <Grid container alignItems="center" direction="column">
+      <Grid item>
         <img src={logo} alt="dictionary-logo" width="100" />
-      </div>
+      </Grid>
       <SearchBar />
       <CardsContainer words={words} />
-    </div>
+    </Grid>
   );
 };
