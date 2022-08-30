@@ -1,6 +1,8 @@
 import { Grid } from "@mui/material";
 import React from "react";
 import { Phonetics } from "../../types";
+// MUI
+import { Typography } from "@mui/material";
 
 interface WordPhoneticsProps {
   phonetics: Phonetics[];
@@ -9,30 +11,32 @@ interface WordPhoneticsProps {
 export const WordPhonetic: React.FC<WordPhoneticsProps> = ({ phonetics }) => {
   return (
     <Grid item container>
-      <h2>Phonetics</h2>
-      {phonetics &&
-        phonetics.map((p) => {
-          return (
-            <section className="phonetics" key={Math.random()}>
-              <div className="phonetic">
-                <h5>{p.text}</h5>
-                {p.audio && (
+      <Grid item container justifyContent="center">
+        <Typography variant="h2">Phonetic</Typography>
+      </Grid>
+      <Grid item container justifyContent="space-around">
+        {phonetics &&
+          phonetics.map((p, i) => {
+            return (
+              <Grid item key={i}>
+                <div>
+                  <Typography variant="subtitle1">{p.text}</Typography>
+                  {p.audio && <audio src={p.audio} controls></audio>}
+                </div>
+                {p.license && (
                   <div>
-                    <audio src={p.audio} controls></audio>
+                    <Typography variant="subtitle2">
+                      License
+                      <Typography variant="caption" sx={{ mx: ".5em" }}>
+                        <a href={p.license.url}>{p.license.name}</a>
+                      </Typography>
+                    </Typography>
                   </div>
                 )}
-              </div>
-              {p.license && (
-                <div className="license">
-                  <h5>License:</h5>
-                  <a href={p.license.url}>
-                    <p>{p.license.name}</p>
-                  </a>
-                </div>
-              )}
-            </section>
-          );
-        })}
+              </Grid>
+            );
+          })}
+      </Grid>
     </Grid>
   );
 };

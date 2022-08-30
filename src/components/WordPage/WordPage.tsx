@@ -11,7 +11,7 @@ import { WordTitle } from "./WordTitle";
 import { RootReducer } from "../../redux/store";
 import { Grid } from "@mui/material";
 
-export const WordPage = () => {
+export const WordPage: React.FC = () => {
   const dispatch = useDispatch();
   const { wordId } = useParams();
   const { detail } = useSelector((state: RootReducer) => state);
