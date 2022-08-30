@@ -6,7 +6,7 @@ import { SearchBar } from "./SearchBar";
 import { CardsContainer } from "../Cards/CardsContainer";
 import { RootReducer } from "../../redux/store";
 
-export const Home = () => {
+export const Home: React.FC = () => {
   const { words } = useSelector((state: RootReducer) => state);
 
   return (
