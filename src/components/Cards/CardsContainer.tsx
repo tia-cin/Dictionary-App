@@ -1,7 +1,7 @@
 import React from "react";
 import { WordAlert, WordData } from "../../types";
 // components
-import { Card } from "./Card";
+import { WordCard } from "./WordCard";
 
 interface CardsContainerProps {
   words: WordData[] | WordAlert;
@@ -12,7 +12,7 @@ export const CardsContainer: React.FC<CardsContainerProps> = ({ words }) => {
     <div>
       {Array.isArray(words) ? (
         words.map((w, i) => {
-          return <Card key={i} word={w} />;
+          return <WordCard key={i} word={w} />;
         })
       ) : (
         <div>
