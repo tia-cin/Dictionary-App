@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import { About } from "./components/About";
 import { Home } from "./components/HomePage/Home";
 import { Landing } from "./components/Landing";
 import { Navbar } from "./components/Navbar";
@@ -18,7 +19,7 @@ export const App: React.FC = () => {
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
         <Route path="/definitions/:wordId" element={<WordPage />} />
-        <Route path="/about" element />
+        <Route path="/about" element={<About />} />
       </Routes>
     </div>
   );
