@@ -1,6 +1,7 @@
-import { Grid } from "@mui/material";
 import React from "react";
 import { License } from "../../types";
+// MUI
+import { Grid, List, ListItem, Typography } from "@mui/material";
 
 interface WordCreditsProps {
   license: License;
@@ -13,29 +14,35 @@ export const WordCredits: React.FC<WordCreditsProps> = ({
 }) => {
   return (
     <Grid item container>
-      <h2>Credits</h2>
+      <Grid item container justifyContent="center">
+        <Typography variant="h2">Credits</Typography>
+      </Grid>
       {license && sourceUrls && (
-        <div className="credits">
+        <Grid item container justifyContent="space-around" sx={{ my: "2em" }}>
           {license && (
-            <div>
-              <h5>License:</h5>
+            <Grid item>
+              <Typography variant="subtitle1">License</Typography>
               <a href={license.url}>
                 <p>{license.name}</p>
               </a>
-            </div>
+            </Grid>
           )}
           {sourceUrls && (
-            <div className="credits">
-              <h5>Sourse URLs:</h5>
-              {sourceUrls &&
-                sourceUrls.map((u) => (
-                  <a href={u} key={u}>
-                    {u}
-                  </a>
-                ))}
-            </div>
+            <Grid item>
+              <Typography variant="subtitle1">Sourse URLs:</Typography>
+              <List>
+                {sourceUrls &&
+                  sourceUrls.map((u) => (
+                    <ListItem>
+                      <a href={u} key={u}>
+                        {u}
+                      </a>
+                    </ListItem>
+                  ))}
+              </List>
+            </Grid>
           )}
-        </div>
+        </Grid>
       )}
     </Grid>
   );

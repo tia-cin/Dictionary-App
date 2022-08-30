@@ -1,8 +1,7 @@
-import { Grid } from "@mui/material";
 import React from "react";
 import { Phonetics } from "../../types";
 // MUI
-import { Typography } from "@mui/material";
+import { Typography, Grid } from "@mui/material";
 
 interface WordPhoneticsProps {
   phonetics: Phonetics[];
@@ -14,11 +13,22 @@ export const WordPhonetic: React.FC<WordPhoneticsProps> = ({ phonetics }) => {
       <Grid item container justifyContent="center">
         <Typography variant="h2">Phonetic</Typography>
       </Grid>
-      <Grid item container justifyContent="space-around">
+      <Grid item container justifyContent="space-around" sx={{ my: "2em" }}>
         {phonetics &&
           phonetics.map((p, i) => {
             return (
-              <Grid item key={i}>
+              <Grid
+                item
+                key={i}
+                sx={{
+                  my: ".5em",
+                  mx: "2em",
+                  borderColor: "#191919",
+                  border: "1px solid",
+                  borderRadius: "2em",
+                  padding: "1em",
+                }}
+              >
                 <div>
                   <Typography variant="subtitle1">{p.text}</Typography>
                   {p.audio && <audio src={p.audio} controls></audio>}

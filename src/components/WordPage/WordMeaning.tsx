@@ -29,7 +29,7 @@ export const WordMeaning: React.FC<WordMeaningProps> = ({ meanings }) => {
       container
       direction="column"
       alignItems="center"
-      sx={{ backgroundColor: "#f4d19b", padding: "1em", my: "2em" }}
+      sx={{ padding: "1em", my: "2em" }}
     >
       <Grid item container justifyContent="center">
         <Typography variant="h2">Meanings</Typography>
