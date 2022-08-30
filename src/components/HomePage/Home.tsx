@@ -13,7 +13,7 @@ export const Home: React.FC = () => {
 
   return (
     <Grid container alignItems="center" direction="column">
-      <Grid item>
+      <Grid item sx={{ my: 2 }}>
         <img src={logo} alt="dictionary-logo" width="100" />
       </Grid>
       <SearchBar />

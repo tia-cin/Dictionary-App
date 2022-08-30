@@ -3,9 +3,9 @@ import { useDispatch } from "react-redux/es/exports";
 import { searchWords } from "../../redux/actions";
 // MUI
 import SearchIcon from "@mui/icons-material/Search";
-import { Grid, TextField, styled } from "@mui/material";
+import { Grid, TextField } from "@mui/material";
 
-export const SearchBar = () => {
+export const SearchBar: React.FC = () => {
   const [searchWord, setSearchWord] = useState<string>("");
   const dispatch = useDispatch();
 
@@ -15,17 +15,8 @@ export const SearchBar = () => {
     setSearchWord("");
   };
 
-  const StyledInput = styled(TextField)`
-    div {
-      margin: 0;
-    }
-    label: {
-      top: -10px;
-    }
-  `;
-
   return (
-    <Grid item>
+    <Grid item sx={{ my: 2 }}>
       <form onSubmit={(e) => handleSubmit(e)}>
         <Grid container justifyContent="center" alignItems="center">
           <SearchIcon onClick={(e) => handleSubmit(e)} sx={{ mt: 2, mr: 1 }} />
