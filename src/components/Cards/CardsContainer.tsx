@@ -25,11 +25,13 @@ export const CardsContainer: React.FC<CardsContainerProps> = ({ words }) => {
           </Grid>
         ))
       ) : (
-        <Alert severity="error">
-          <AlertTitle>{words.response.data.title}</AlertTitle>
-          {words.response.data.message} <br />
-          <strong>{words.response.data.resolution}</strong>
-        </Alert>
+        <Grid item container direction="column" alignItems="center">
+          <Alert severity="error" sx={{ my: "2em" }}>
+            <AlertTitle>{words.response.data.title}</AlertTitle>
+            {words.response.data.message}
+          </Alert>
+          <Alert severity="info">{words.response.data.resolution}</Alert>
+        </Grid>
       )}
     </Grid>
   );
