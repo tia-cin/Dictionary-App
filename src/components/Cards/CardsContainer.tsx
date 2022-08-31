@@ -20,7 +20,7 @@ export const CardsContainer: React.FC<CardsContainerProps> = ({ words }) => {
     >
       {Array.isArray(words) ? (
         words.map((w, i) => (
-          <Grid item>
+          <Grid item key={i}>
             <WordCard key={i} word={w} />
           </Grid>
         ))
