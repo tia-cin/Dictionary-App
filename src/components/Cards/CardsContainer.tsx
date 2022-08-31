@@ -3,7 +3,7 @@ import { WordAlert, WordData } from "../../types";
 // components
 import { WordCard } from "./WordCard";
 // MUI
-import { Grid } from "@mui/material";
+import { Grid, Alert, AlertTitle } from "@mui/material";
 
 interface CardsContainerProps {
   words: WordData[] | WordAlert;
@@ -25,13 +25,11 @@ export const CardsContainer: React.FC<CardsContainerProps> = ({ words }) => {
           </Grid>
         ))
       ) : (
-        <div>
-          <div className="message">
-            <div>{words.title}</div>
-            <div>{words.message}</div>
-            <p>{words.resolution}</p>
-          </div>
-        </div>
+        <Alert severity="error">
+          <AlertTitle>{words.response.data.title}</AlertTitle>
+          {words.response.data.message} <br />
+          <strong>{words.response.data.resolution}</strong>
+        </Alert>
       )}
     </Grid>
   );

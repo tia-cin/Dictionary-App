@@ -14,9 +14,6 @@ export const WordCredits: React.FC<WordCreditsProps> = ({
 }) => {
   return (
     <Grid item container>
-      <Grid item container justifyContent="center">
-        <Typography variant="h2">Credits</Typography>
-      </Grid>
       {license && sourceUrls && (
         <Grid item container justifyContent="space-around" sx={{ my: "2em" }}>
           {license && (
@@ -32,11 +29,9 @@ export const WordCredits: React.FC<WordCreditsProps> = ({
               <Typography variant="subtitle1">Sourse URLs:</Typography>
               <List>
                 {sourceUrls &&
-                  sourceUrls.map((u) => (
-                    <ListItem>
-                      <a href={u} key={u}>
-                        {u}
-                      </a>
+                  sourceUrls.map((u, i) => (
+                    <ListItem key={i}>
+                      <a href={u}>{u}</a>
                     </ListItem>
                   ))}
               </List>

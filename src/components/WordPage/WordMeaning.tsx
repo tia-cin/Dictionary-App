@@ -15,8 +15,10 @@ export const WordMeaning: React.FC<WordMeaningProps> = ({ meanings }) => {
           <Typography variant="h6">{title}</Typography>
         </Grid>
         <Grid item>
-          {array.map((a) => (
-            <Button variant="outlined">{a}</Button>
+          {array.map((a, i) => (
+            <Button variant="outlined" key={i}>
+              {a}
+            </Button>
           ))}
         </Grid>
       </Grid>

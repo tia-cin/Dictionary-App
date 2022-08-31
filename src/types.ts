@@ -39,9 +39,13 @@ export interface WordData {
 }
 
 export interface WordAlert {
-  title: string;
-  message: string;
-  resolution: string;
+  response: {
+    data: {
+      title: string;
+      message: string;
+      resolution: string;
+    };
+  };
 }
 
 export interface WordState {
