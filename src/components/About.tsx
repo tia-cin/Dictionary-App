@@ -22,7 +22,7 @@ export const About: React.FC = () => {
           <br />
           such as Definitions, Dynamic examples, phonetic, synonyms and
           <br />
-          antonyms. Each of those has its own definitions
+          antonyms.
         </Typography>
       </Grid>
       <Grid item sx={{ my: "2em" }}>

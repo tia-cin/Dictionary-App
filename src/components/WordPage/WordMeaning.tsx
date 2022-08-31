@@ -1,7 +1,7 @@
 import React from "react";
 import { Meanings } from "../../types";
 // MUI
-import { Button, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 
 interface WordMeaningProps {
   meanings: Meanings[];
@@ -15,11 +15,17 @@ export const WordMeaning: React.FC<WordMeaningProps> = ({ meanings }) => {
           <Typography variant="h6">{title}</Typography>
         </Grid>
         <Grid item>
-          {array.map((a, i) => (
-            <Button variant="outlined" key={i}>
-              {a}
-            </Button>
-          ))}
+          {array.length ? (
+            array.map((a, i) => (
+              <Typography variant="overline" key={i} sx={{ mx: ".5em" }}>
+                {a}
+              </Typography>
+            ))
+          ) : (
+            <Typography variant="overline" sx={{ mx: ".5em" }}>
+              No {title} found
+            </Typography>
+          )}
         </Grid>
       </Grid>
     );
@@ -64,8 +70,8 @@ export const WordMeaning: React.FC<WordMeaningProps> = ({ meanings }) => {
                   <Grid item container direction="row" alignItems="center">
                     <Typography variant="h6">Part of Speech</Typography>
                     <Typography
-                      variant="body2"
-                      sx={{ paddingTop: ".5em", paddingLeft: ".5em" }}
+                      variant="body1"
+                      sx={{ paddingTop: ".3em", paddingLeft: ".5em" }}
                     >
                       {m.partOfSpeech}
                     </Typography>
@@ -77,7 +83,12 @@ export const WordMeaning: React.FC<WordMeaningProps> = ({ meanings }) => {
                     {m.definitions &&
                       m.definitions.map((d, i) => {
                         return (
-                          <Grid item direction="column" key={i}>
+                          <Grid
+                            item
+                            direction="column"
+                            key={i}
+                            sx={{ my: ".5em" }}
+                          >
                             <Typography variant="body2">
                               {d.definition}
                             </Typography>
