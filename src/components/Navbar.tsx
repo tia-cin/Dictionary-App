@@ -12,6 +12,13 @@ export const Navbar: React.FC = () => {
         sx={{ backgroundColor: "#d7e9f7", px: ".5em", py: "1em" }}
       >
         <Grid item>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <Button size="small" sx={{ mx: "1em" }}>
+              Dictionary
+            </Button>
+          </Link>
+        </Grid>
+        <Grid item>
           <Link to="/home" style={{ textDecoration: "none" }}>
             <Button size="small" sx={{ mx: "1em" }}>
               Home
