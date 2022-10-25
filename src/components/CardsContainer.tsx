@@ -1,5 +1,5 @@
 import React from "react";
-import { WordAlert, WordData } from "../../types";
+import { WordAlert, WordData } from "../types";
 // components
 import { WordCard } from "./WordCard";
 // MUI

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux/es/exports";
-import { searchWords } from "../../redux/actions";
+import { searchWords } from "../redux/actions";
 // MUI
 import SearchIcon from "@mui/icons-material/Search";
 import { Grid, TextField } from "@mui/material";

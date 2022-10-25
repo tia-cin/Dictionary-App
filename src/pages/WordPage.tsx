@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux/es/exports";
 import { useParams } from "react-router-dom";
-import { getDetail } from "../../redux/actions";
+import { getDetail } from "../redux/actions";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 // components
-import { WordCredits } from "./WordCredits";
-import { WordMeaning } from "./WordMeaning";
-import { WordPhonetic } from "./WordPhonetic";
-import { WordTitle } from "./WordTitle";
-import { RootReducer } from "../../redux/store";
+import { WordCredits } from "../components/WordPage/WordCredits";
+import { WordMeaning } from "../components/WordMeaning";
+import { WordPhonetic } from "../components/WordPage/WordPhonetic";
+import { WordTitle } from "../components/WordTitle";
+import { RootReducer } from "../redux/store";
 import { Grid } from "@mui/material";
 
 export const WordPage: React.FC = () => {

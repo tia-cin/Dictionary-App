@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { WordData } from "../../types";
+import { WordData } from "../types";
 // MUI
 import {
   Card,
