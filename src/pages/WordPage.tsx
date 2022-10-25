@@ -3,11 +3,12 @@ import { useDispatch } from "react-redux/es/exports";
 import { useParams } from "react-router-dom";
 import { getDetail } from "../redux/actions";
 import { useSelector } from "react-redux/es/hooks/useSelector";
-// components
-import { WordCredits } from "../components/WordPage/WordCredits";
-import { WordMeaning } from "../components/WordMeaning";
-import { WordPhonetic } from "../components/WordPage/WordPhonetic";
-import { WordTitle } from "../components/WordTitle";
+import {
+  WordCredits,
+  WordMeaning,
+  WordPhonetic,
+  WordTitle,
+} from "../components";
 import { RootReducer } from "../redux/store";
 import { Grid } from "@mui/material";
 

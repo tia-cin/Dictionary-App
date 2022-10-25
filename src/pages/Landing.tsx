@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import image from "../assets/image.png";
-// MUI
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { Button, Grid, Typography } from "@mui/material";
 

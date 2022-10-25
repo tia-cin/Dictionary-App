@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// MUI
 import { Button, Grid } from "@mui/material";
 
 export const Navbar: React.FC = () => {

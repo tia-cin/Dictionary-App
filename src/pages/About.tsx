@@ -1,5 +1,4 @@
 import React from "react";
-// MUI
 import { Grid, Typography } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LanguageIcon from "@mui/icons-material/Language";

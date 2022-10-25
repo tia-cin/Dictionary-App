@@ -1,6 +1,5 @@
 import React from "react";
-import { Phonetics } from "../../types";
-// MUI
+import { Phonetics } from "../types";
 import { Typography, Grid } from "@mui/material";
 
 interface WordPhoneticsProps {

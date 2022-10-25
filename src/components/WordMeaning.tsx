@@ -1,6 +1,5 @@
 import React from "react";
 import { Meanings } from "../types";
-// MUI
 import { Grid, Typography } from "@mui/material";
 
 interface WordMeaningProps {

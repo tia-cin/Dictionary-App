@@ -1,11 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import logo from "../../assets/dictionary.png";
-// components
-import { SearchBar } from "../components/SearchBar";
-import { CardsContainer } from "../components/CardsContainer";
+import logo from "../assets/dictionary.png";
+import { SearchBar, CardsContainer } from "../components";
 import { RootReducer } from "../redux/store";
-// MUI
 import { Grid } from "@mui/material";
 
 export const Home: React.FC = () => {

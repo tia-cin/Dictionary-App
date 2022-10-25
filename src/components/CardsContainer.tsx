@@ -1,8 +1,6 @@
 import React from "react";
 import { WordAlert, WordData } from "../types";
-// components
-import { WordCard } from "./WordCard";
-// MUI
+import { WordCard } from ".";
 import { Grid, Alert, AlertTitle } from "@mui/material";
 
 interface CardsContainerProps {

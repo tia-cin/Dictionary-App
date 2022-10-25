@@ -1,6 +1,5 @@
 import React from "react";
-import { License } from "../../types";
-// MUI
+import { License } from "../types";
 import { Grid, List, ListItem, Typography } from "@mui/material";
 
 interface WordCreditsProps {
