@@ -1,10 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { About } from "./pages/About";
-import { Home } from "./pages/Home";
-import { Landing } from "./pages/Landing";
+import { About, Home, Landing, WordPage } from "./pages";
 import { Navbar } from "./components/Navbar";
-import { WordPage } from "./pages/WordPage";
 // import { Status } from "./components/Status";
 // api -> https://api.dictionaryapi.dev/api/v2/entries/en
 
