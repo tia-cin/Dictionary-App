@@ -22,9 +22,9 @@ export const WordPage: React.FC = () => {
   }, [dispatch, wordId]);
 
   return (
-    <div>
+    <div className="h-screen pt-20">
       {detail && (
-        <Grid container>
+        <div className="flex flex-col items-center justify-center">
           <WordTitle title={detail[0].word} phonetic={detail[0].phonetic} />
           <WordMeaning meanings={detail[0].meanings} />
           <WordPhonetic phonetics={detail[0].phonetics} />
@@ -32,7 +32,7 @@ export const WordPage: React.FC = () => {
             license={detail[0].license}
             sourceUrls={detail[0].sourceUrls}
           />
-        </Grid>
+        </div>
       )}
     </div>
   );
