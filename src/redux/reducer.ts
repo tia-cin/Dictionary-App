@@ -21,14 +21,15 @@ export const rootReducer = (
       return {
         ...state,
         detail:
-          state.words.length > 1
+          state.words?.length > 1
             ? state.words.filter((w) => w.id === action.payload)
             : state.words,
       };
     case FAILED_MESSAGE:
       console.log(action.payload);
       return {
-        ...state,
+        detail: null,
+        words: [],
         failedMessage: action.payload,
       };
     default:

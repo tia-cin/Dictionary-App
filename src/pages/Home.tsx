@@ -8,8 +8,6 @@ import { WordAlert, WordData } from "../types";
 export const Home: React.FC = () => {
   const { words, failedMessage } = useSelector((state: RootReducer) => state);
 
-  console.log(words);
-
   return (
     <div className="h-screen pt-20">
       <div className="text-center">

@@ -1,5 +1,12 @@
 import { ThunkAction } from "redux-thunk";
-import { Actions, FAILED_MESSAGE, GET_DETAIL, SEARCH_WORD } from "../types";
+import {
+  Actions,
+  FAILED_MESSAGE,
+  GET_DETAIL,
+  SEARCH_WORD,
+  WordAlert,
+  WordData,
+} from "../types";
 import { RootReducer } from "./store";
 
 const axios = require("axios");
@@ -35,7 +42,8 @@ export const searchWords = (
   return async (dispatch) => {
     try {
       let res = await apiCall(input);
-      if (res.response.status === 200) {
+      console.log(res);
+      if (Array.isArray(res)) {
         return dispatch({
           type: SEARCH_WORD,
           payload: res,
@@ -47,6 +55,7 @@ export const searchWords = (
         });
       }
     } catch (e: any) {
+      console.log(e);
       return dispatch({
         type: FAILED_MESSAGE,
         payload: e.response.data,
