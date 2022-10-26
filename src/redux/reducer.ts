@@ -1,5 +1,5 @@
 import { Actions, WordState } from "../types";
-import { GET_DETAIL, SEARCH_WORD } from "../types";
+import { GET_DETAIL, SEARCH_WORD, FAILED_MESSAGE } from "../types";
 
 const initialState: WordState = {
   words: [],
@@ -24,6 +24,11 @@ export const rootReducer = (
           state.words.length > 1
             ? state.words.filter((w) => w.id === action.payload)
             : state.words,
+      };
+    case FAILED_MESSAGE:
+      return {
+        ...state,
+        failedMessage: action.payload,
       };
     default:
       return state;

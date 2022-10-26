@@ -39,7 +39,7 @@ export interface WordData {
 }
 
 export interface WordAlert {
-  response: {
+  response?: {
     data: {
       title: string;
       message: string;
@@ -51,7 +51,7 @@ export interface WordAlert {
 export interface WordState {
   words: WordData[];
   detail: WordData[] | null;
-  failedMessage: WordAlert | null;
+  failedMessage: string | null | WordAlert;
 }
 
 interface SearchWordsAction {
@@ -66,7 +66,7 @@ interface GetDetailAction {
 
 interface FailedMessageAction {
   type: typeof FAILED_MESSAGE;
-  payload: string;
+  payload: WordAlert;
 }
 
 export type Actions = SearchWordsAction | GetDetailAction | FailedMessageAction;

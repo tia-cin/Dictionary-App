@@ -40,7 +40,7 @@ export const searchWords = (
         payload: res,
       });
     } catch (e: any) {
-      dispatch({ type: FAILED_MESSAGE, payload: e.response.data });
+      dispatch({ type: FAILED_MESSAGE, payload: e });
     }
   };
 };

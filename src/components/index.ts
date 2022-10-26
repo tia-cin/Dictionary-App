@@ -1,4 +1,3 @@
-import { CardsContainer } from "./CardsContainer";
 import { Navbar } from "./Navbar";
 import { SearchBar } from "./SearchBar";
 import { Status } from "./Status";
@@ -9,7 +8,6 @@ import { WordPhonetic } from "./WordPhonetic";
 import { WordTitle } from "./WordTitle";
 
 export {
-  CardsContainer,
   Navbar,
   SearchBar,
   Status,

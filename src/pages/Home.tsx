@@ -1,20 +1,48 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import logo from "../assets/dictionary.png";
-import { SearchBar, CardsContainer } from "../components";
+import { SearchBar, WordCard } from "../components";
 import { RootReducer } from "../redux/store";
-import { Grid } from "@mui/material";
+import { Grid, Alert, AlertTitle } from "@mui/material";
+import { WordAlert, WordData } from "../types";
 
 export const Home: React.FC = () => {
-  const { words } = useSelector((state: RootReducer) => state);
+  const { words, failedMessage } = useSelector((state: RootReducer) => state);
+
+  console.log(words);
 
   return (
-    <Grid container alignItems="center" direction="column">
-      <Grid item sx={{ my: 2 }}>
-        <img src={logo} alt="dictionary-logo" width="100" />
-      </Grid>
+    <div className="h-screen pt-20">
+      <div className="text-center">
+        <p className="font-semibold text-2xl">Search in Dictionary</p>
+        <p className="px-20">
+          Get the word meaning, pronunciation, origin, synonyms, and more.
+        </p>
+      </div>
       <SearchBar />
-      <CardsContainer words={words} />
-    </Grid>
+      {words.length > 0 && (
+        <Grid
+          item
+          container
+          alignItems="center"
+          justifyContent="space-evenly"
+          sx={{ my: 5 }}
+        >
+          {words?.map((w, i) => (
+            <Grid item key={i}>
+              <WordCard key={i} word={w} />
+            </Grid>
+          ))}
+        </Grid>
+      )}
+      {failedMessage && (
+        <Grid item container direction="column" alignItems="center">
+          <Alert severity="error" sx={{ my: "2em" }}>
+            {/* <AlertTitle>{words.response.data.title}</AlertTitle> */}
+            {/* {words.response.data.message} */}
+          </Alert>
+          {/* <Alert severity="info">{words.response.data.resolution}</Alert> */}
+        </Grid>
+      )}
+    </div>
   );
 };
