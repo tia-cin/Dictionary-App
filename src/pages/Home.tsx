@@ -37,10 +37,10 @@ export const Home: React.FC = () => {
       {failedMessage && (
         <Grid item container direction="column" alignItems="center">
           <Alert severity="error" sx={{ my: "2em" }}>
-            {/* <AlertTitle>{words.response.data.title}</AlertTitle> */}
-            {/* {words.response.data.message} */}
+            <AlertTitle>{failedMessage.title}</AlertTitle>
+            {failedMessage.message}
+            {failedMessage.resolution}
           </Alert>
-          {/* <Alert severity="info">{words.response.data.resolution}</Alert> */}
         </Grid>
       )}
     </div>

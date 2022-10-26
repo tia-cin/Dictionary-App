@@ -35,12 +35,22 @@ export const searchWords = (
   return async (dispatch) => {
     try {
       let res = await apiCall(input);
-      return dispatch({
-        type: SEARCH_WORD,
-        payload: res,
-      });
+      if (res.response.status === 200) {
+        return dispatch({
+          type: SEARCH_WORD,
+          payload: res,
+        });
+      } else {
+        return dispatch({
+          type: FAILED_MESSAGE,
+          payload: res.response.data,
+        });
+      }
     } catch (e: any) {
-      dispatch({ type: FAILED_MESSAGE, payload: e });
+      return dispatch({
+        type: FAILED_MESSAGE,
+        payload: e.response.data,
+      });
     }
   };
 };

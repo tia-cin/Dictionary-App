@@ -26,6 +26,7 @@ export const rootReducer = (
             : state.words,
       };
     case FAILED_MESSAGE:
+      console.log(action.payload);
       return {
         ...state,
         failedMessage: action.payload,

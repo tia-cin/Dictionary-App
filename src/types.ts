@@ -39,19 +39,15 @@ export interface WordData {
 }
 
 export interface WordAlert {
-  response?: {
-    data: {
-      title: string;
-      message: string;
-      resolution: string;
-    };
-  };
+  title?: string;
+  message: string;
+  resolution?: string;
 }
 
 export interface WordState {
   words: WordData[];
   detail: WordData[] | null;
-  failedMessage: string | null | WordAlert;
+  failedMessage: WordAlert | null;
 }
 
 interface SearchWordsAction {
