@@ -10,9 +10,9 @@ import {
   WordTitle,
 } from "../components";
 import { RootReducer } from "../redux/store";
-import { Grid } from "@mui/material";
 
 export const WordPage: React.FC = () => {
+  const [toggle, setToggle] = React.useState<string>("meanings");
   const dispatch = useDispatch();
   const { wordId } = useParams();
   const { detail } = useSelector((state: RootReducer) => state);
@@ -26,12 +26,25 @@ export const WordPage: React.FC = () => {
       {detail && (
         <div className="flex flex-col items-center justify-center">
           <WordTitle title={detail[0].word} phonetic={detail[0].phonetic} />
-          <WordMeaning meanings={detail[0].meanings} />
-          <WordPhonetic phonetics={detail[0].phonetics} />
-          <WordCredits
-            license={detail[0].license}
-            sourceUrls={detail[0].sourceUrls}
-          />
+          <div>
+            <div className="flex justify-around">
+              <button onClick={() => setToggle("meanings")}>meaning</button>
+              <button onClick={() => setToggle("phonetic")}>phonetic</button>
+              <button onClick={() => setToggle("credits")}>credits</button>
+            </div>
+            {toggle === "meanings" && (
+              <WordMeaning meanings={detail[0].meanings} />
+            )}
+            {toggle === "phonetic" && (
+              <WordPhonetic phonetics={detail[0].phonetics} />
+            )}
+            {toggle === "credits" && (
+              <WordCredits
+                license={detail[0].license}
+                sourceUrls={detail[0].sourceUrls}
+              />
+            )}
+          </div>
         </div>
       )}
     </div>

@@ -7,11 +7,14 @@ interface WordMeaningProps {
 }
 
 export const WordMeaning: React.FC<WordMeaningProps> = ({ meanings }) => {
-  const addButtons = (array: Array<any>, title: string) => {
+  const Buttons: React.FC<{ array: Array<any>; title: string }> = ({
+    array,
+    title,
+  }) => {
     return (
       <Grid item>
         <Grid item container>
-          <Typography variant="h6">{title}</Typography>
+          <Titles title={title} />
         </Grid>
         <Grid item>
           {array.length ? (
@@ -30,83 +33,72 @@ export const WordMeaning: React.FC<WordMeaningProps> = ({ meanings }) => {
     );
   };
 
+  const Definitions: React.FC<{
+    definition: string;
+    example: string | undefined;
+  }> = ({ definition, example }) => {
+    const [text, setText] = React.useState<string>(
+      definition.length <= 20 ? definition : definition.slice(0, 20)
+    );
+    const [readMore, setReadMore] = React.useState<boolean>(false);
+    return (
+      <div className="w-200">
+        <p>{text}</p>
+        <p>"{example ? example : "No Example"}"</p>
+        <span
+          className="font-semibold"
+          onClick={() => {
+            if (!readMore) {
+              setText(definition);
+              setReadMore(true);
+            } else {
+              setText(definition.slice(0, 20));
+              setReadMore(false);
+            }
+          }}
+        >
+          {readMore ? " Show less" : " Read more"}
+        </span>
+      </div>
+    );
+  };
+
+  const Titles: React.FC<{ title: string }> = ({ title }) => (
+    <p className="font-medium text-lg">{title}</p>
+  );
+
   return (
-    <Grid
-      item
-      container
-      direction="column"
-      alignItems="center"
-      sx={{ padding: "1em", my: "2em" }}
-    >
-      <Grid item container justifyContent="center">
-        <Typography variant="h2">Meanings</Typography>
-      </Grid>
-      <Grid
-        item
-        container
-        direction="row"
-        justifyContent="space-around"
-        sx={{ my: "2em" }}
-      >
+    <div>
+      <h2 className="text-4xl font-semibold text-center my-2">Meanings</h2>
+      <div className="grid grid-cols-2 items-center gap-3 h-full">
         {meanings &&
-          meanings.map((m, i) => {
+          meanings.map((m: Meanings, i: number) => {
             return (
-              <Grid
-                item
-                container
-                rowSpacing={1}
+              <div
                 key={i}
-                sx={{
-                  my: ".5em",
-                  mx: "2em",
-                  borderColor: "#191919",
-                  border: "1px solid",
-                  borderRadius: "2em",
-                  padding: "1em",
-                }}
+                className="grid grid-cols-2 border rounded-3xl p-2 h-full my-2 mx-5 gap-3"
               >
-                <Grid item container direction="column" xs={6}>
-                  <Grid item container direction="row" alignItems="center">
-                    <Typography variant="h6">Part of Speech</Typography>
-                    <Typography
-                      variant="body1"
-                      sx={{ paddingTop: ".3em", paddingLeft: ".5em" }}
-                    >
-                      {m.partOfSpeech}
-                    </Typography>
-                  </Grid>
-                  <Grid item>
-                    <Grid item>
-                      <Typography variant="h6">Definitions</Typography>
-                    </Grid>
-                    {m.definitions &&
-                      m.definitions.map((d, i) => {
-                        return (
-                          <Grid
-                            item
-                            direction="column"
-                            key={i}
-                            sx={{ my: ".5em" }}
-                          >
-                            <Typography variant="body2">
-                              {d.definition}
-                            </Typography>
-                            <Typography variant="body2">
-                              "{d.example ? d.example : "No Example"}"
-                            </Typography>
-                          </Grid>
-                        );
-                      })}
-                  </Grid>
-                </Grid>
-                <Grid item xs={6}>
-                  {addButtons(m.synonyms, "Synonyms")}
-                  {addButtons(m.antonyms, "Antonyms")}
-                </Grid>
-              </Grid>
+                <div className="">
+                  <Titles title="Part of Speech" />
+                  <p>{m.partOfSpeech}</p>
+                </div>
+                <div className="">
+                  <Titles title="Definitions" />
+                  {m.definitions &&
+                    m.definitions.map((d, i) => (
+                      <Definitions
+                        definition={d.definition}
+                        example={d.example}
+                        key={i}
+                      />
+                    ))}
+                </div>
+                <Buttons array={m.synonyms} title="Synonyms" />
+                <Buttons array={m.antonyms} title="Antonyms" />
+              </div>
             );
           })}
-      </Grid>
-    </Grid>
+      </div>
+    </div>
   );
 };
