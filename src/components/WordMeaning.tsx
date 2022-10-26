@@ -13,24 +13,20 @@ export const WordMeaning: React.FC<WordMeaningProps> = ({ meanings }) => {
     title,
   }) => {
     return (
-      <Grid item>
-        <Grid item container>
-          <Titles title={title} />
-        </Grid>
-        <Grid item>
+      <div>
+        <Titles title={title} />
+        <div className="grid grid-cols-3 gap-3">
           {array.length ? (
             array.map((a, i) => (
-              <Typography variant="overline" key={i} sx={{ mx: ".5em" }}>
+              <p key={i} className="">
                 {a}
-              </Typography>
+              </p>
             ))
           ) : (
-            <Typography variant="overline" sx={{ mx: ".5em" }}>
-              No {title} found
-            </Typography>
+            <p>No {title} found</p>
           )}
-        </Grid>
-      </Grid>
+        </div>
+      </div>
     );
   };
 
@@ -44,22 +40,24 @@ export const WordMeaning: React.FC<WordMeaningProps> = ({ meanings }) => {
     const [readMore, setReadMore] = React.useState<boolean>(false);
     return (
       <div className="w-400">
-        <p>{text}</p>
+        <p>
+          {text}
+          <span
+            className="font-semibold"
+            onClick={() => {
+              if (!readMore) {
+                setText(definition);
+                setReadMore(true);
+              } else {
+                setText(definition.slice(0, 20));
+                setReadMore(false);
+              }
+            }}
+          >
+            {readMore ? " Show less" : " Read more"}
+          </span>
+        </p>
         <p>"{example ? example : "No Example"}"</p>
-        <span
-          className="font-semibold"
-          onClick={() => {
-            if (!readMore) {
-              setText(definition);
-              setReadMore(true);
-            } else {
-              setText(definition.slice(0, 20));
-              setReadMore(false);
-            }
-          }}
-        >
-          {readMore ? " Show less" : " Read more"}
-        </span>
       </div>
     );
   };
@@ -70,23 +68,21 @@ export const WordMeaning: React.FC<WordMeaningProps> = ({ meanings }) => {
 
   return (
     <div>
-      <div className="">
-        <div className="">
-          <div className="">
-            <Titles title="Part of Speech" />
-            <p>{section.partOfSpeech}</p>
-          </div>
-          <div className="">
-            <Titles title="Definitions" />
-            {section.definitions &&
-              section.definitions.map((d: any, i: number) => (
-                <Definitions
-                  definition={d.definition}
-                  example={d.example}
-                  key={i}
-                />
-              ))}
-          </div>
+      <div className="flex">
+        <div>
+          <Titles title="Part of Speech" />
+          <p>{section.partOfSpeech}</p>
+          <Titles title="Definitions" />
+          {section.definitions &&
+            section.definitions.map((d: any, i: number) => (
+              <Definitions
+                definition={d.definition}
+                example={d.example}
+                key={i}
+              />
+            ))}
+        </div>
+        <div>
           <Buttons array={section.synonyms} title="Synonyms" />
           <Buttons array={section.antonyms} title="Antonyms" />
         </div>

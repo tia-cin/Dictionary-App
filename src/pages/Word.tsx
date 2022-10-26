@@ -23,7 +23,7 @@ export const WordPage: React.FC = () => {
   }, [dispatch, wordId]);
 
   return (
-    <div className="h-screen pt-20 overflow-hidden">
+    <div className="h-screen pt-20">
       {detail && (
         <div className="flex flex-col items-center justify-center">
           <WordTitle title={detail[0].word} phonetic={detail[0].phonetic} />
