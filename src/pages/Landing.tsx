@@ -1,37 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import image from "../assets/image.png";
-import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import { Button, Grid, Typography } from "@mui/material";
+import { Button } from "@mui/material";
 
 export const Landing: React.FC = () => {
   return (
-    <Grid container sx={{ my: "10em" }}>
-      <Grid item>
-        <Grid item sx={{ mx: "5em", my: "2em" }}>
-          <Typography variant="h2" sx={{ mb: "1em" }}>
-            Welcome to Dictionary
-          </Typography>
-          <Typography variant="h5">
-            Get word definitions and learn about their use
-            <br />
-            with example, pronunciation, synonyms, antonyms
-            <br />
-            and more
-          </Typography>
-        </Grid>
-        <Grid item sx={{ mx: "5em" }}>
-          <Link to="/home" style={{ textDecoration: "none" }}>
-            <Button size="large">
-              Get Started
-              <KeyboardArrowRightIcon />
-            </Button>
-          </Link>
-        </Grid>
-      </Grid>
-      <Grid item sx={{ mx: "5em" }}>
+    <div className="flex justify-center items-center mx-5 h-screen">
+      <div className="text-center w-650">
+        <span className="text-lg font-medium">Hello there!</span>
+        <h1 className="font-semibold text-6xl">Welcome to Dictionary</h1>
+        <p className="text-lg mt-3 lg:w-3/4">
+          Get word definitions and learn about their use with example,
+          pronunciation, synonyms, antonyms and more
+        </p>
+        <Link to="/home" style={{ textDecoration: "none" }}>
+          <Button size="large" variant="contained" sx={{ marginTop: "5em" }}>
+            Get Started
+          </Button>
+        </Link>
+      </div>
+      <div className="md:hidden mx-5 px-5">
         <img src={image} alt="svg" width="350" />
-      </Grid>
-    </Grid>
+      </div>
+    </div>
   );
 };
