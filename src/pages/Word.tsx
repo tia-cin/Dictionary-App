@@ -10,6 +10,7 @@ import {
   WordTitle,
 } from "../components";
 import { RootReducer } from "../redux/store";
+import { isTemplateExpression } from "typescript";
 
 export const WordPage: React.FC = () => {
   const [toggle, setToggle] = React.useState<string>("meanings");
@@ -27,15 +28,21 @@ export const WordPage: React.FC = () => {
         <div className="flex flex-col items-center justify-center">
           <WordTitle title={detail[0].word} phonetic={detail[0].phonetic} />
           <div>
-            <div className="flex justify-around">
-              <button onClick={() => setToggle("meanings")}>meaning</button>
-              <button onClick={() => setToggle("phonetic")}>phonetic</button>
-              <button onClick={() => setToggle("credits")}>credits</button>
+            <div className="flex justify-around my-5">
+              {["meanings", "phonetics", "credits"].map((item, i) => (
+                <button
+                  key={i}
+                  onClick={() => setToggle(item)}
+                  className="bg-blue-300 rounded px-2 text-white"
+                >
+                  {item.toLocaleUpperCase()}
+                </button>
+              ))}
             </div>
             {toggle === "meanings" && (
               <WordMeaning meanings={detail[0].meanings} />
             )}
-            {toggle === "phonetic" && (
+            {toggle === "phonetics" && (
               <WordPhonetic phonetics={detail[0].phonetics} />
             )}
             {toggle === "credits" && (

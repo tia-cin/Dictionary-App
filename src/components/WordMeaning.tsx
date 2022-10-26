@@ -7,6 +7,7 @@ interface WordMeaningProps {
 }
 
 export const WordMeaning: React.FC<WordMeaningProps> = ({ meanings }) => {
+  const [section, setSection] = React.useState<any>(meanings[0]);
   const Buttons: React.FC<{ array: Array<any>; title: string }> = ({
     array,
     title,
@@ -69,35 +70,32 @@ export const WordMeaning: React.FC<WordMeaningProps> = ({ meanings }) => {
 
   return (
     <div>
-      <h2 className="text-4xl font-semibold text-center my-2">Meanings</h2>
-      <div className="grid grid-cols-2 items-center gap-3 h-full">
+      <div className="">
+        <div className="">
+          <div className="">
+            <Titles title="Part of Speech" />
+            <p>{section.partOfSpeech}</p>
+          </div>
+          <div className="">
+            <Titles title="Definitions" />
+            {section.definitions &&
+              section.definitions.map((d: any, i: number) => (
+                <Definitions
+                  definition={d.definition}
+                  example={d.example}
+                  key={i}
+                />
+              ))}
+          </div>
+          <Buttons array={section.synonyms} title="Synonyms" />
+          <Buttons array={section.antonyms} title="Antonyms" />
+        </div>
+      </div>
+      <div className="flex justify-evenly my-5 mb-8">
         {meanings &&
-          meanings.map((m: Meanings, i: number) => {
-            return (
-              <div
-                key={i}
-                className="grid grid-cols-2 border rounded-3xl p-2 h-full my-2 mx-5 gap-3"
-              >
-                <div className="">
-                  <Titles title="Part of Speech" />
-                  <p>{m.partOfSpeech}</p>
-                </div>
-                <div className="">
-                  <Titles title="Definitions" />
-                  {m.definitions &&
-                    m.definitions.map((d, i) => (
-                      <Definitions
-                        definition={d.definition}
-                        example={d.example}
-                        key={i}
-                      />
-                    ))}
-                </div>
-                <Buttons array={m.synonyms} title="Synonyms" />
-                <Buttons array={m.antonyms} title="Antonyms" />
-              </div>
-            );
-          })}
+          meanings.map((p, i) => (
+            <button onClick={() => setSection(p)}>{i}</button>
+          ))}
       </div>
     </div>
   );
