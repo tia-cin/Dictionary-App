@@ -12,11 +12,11 @@ export const App: React.FC = () => {
         <Navbar />
       </header>
       <Routes>
-        <Route path="/" element={<Status />} />
-        {/* <Route path="/" element={<Landing />} />
+        {/* <Route path="/" element={<Status />} /> */}
+        <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
         <Route path="/definitions/:wordId" element={<WordPage />} />
-        <Route path="/about" element={<About />} /> */}
+        <Route path="/about" element={<About />} />
       </Routes>
     </div>
   );

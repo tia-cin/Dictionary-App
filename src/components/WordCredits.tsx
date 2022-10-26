@@ -12,32 +12,34 @@ export const WordCredits: React.FC<WordCreditsProps> = ({
   sourceUrls,
 }) => {
   return (
-    <Grid item container>
-      {license && sourceUrls && (
-        <Grid item container justifyContent="space-around" sx={{ my: "2em" }}>
-          {license && (
-            <Grid item>
-              <Typography variant="subtitle1">License</Typography>
-              <a href={license.url}>
-                <p>{license.name}</p>
-              </a>
-            </Grid>
-          )}
-          {sourceUrls && (
-            <Grid item>
-              <Typography variant="subtitle1">Sourse URLs:</Typography>
-              <List>
-                {sourceUrls &&
-                  sourceUrls.map((u, i) => (
-                    <ListItem key={i}>
-                      <a href={u}>{u}</a>
-                    </ListItem>
-                  ))}
-              </List>
-            </Grid>
-          )}
-        </Grid>
-      )}
-    </Grid>
+    <div className="w-400">
+      <Grid item container>
+        {license && sourceUrls && (
+          <Grid item container justifyContent="space-around" sx={{ my: "2em" }}>
+            {license && (
+              <Grid item>
+                <Typography variant="subtitle1">License</Typography>
+                <a href={license.url}>
+                  <p>{license.name}</p>
+                </a>
+              </Grid>
+            )}
+            {sourceUrls && (
+              <Grid item>
+                <Typography variant="subtitle1">Sourse URLs:</Typography>
+                <List>
+                  {sourceUrls &&
+                    sourceUrls.map((u, i) => (
+                      <ListItem key={i}>
+                        <a href={u}>{u}</a>
+                      </ListItem>
+                    ))}
+                </List>
+              </Grid>
+            )}
+          </Grid>
+        )}
+      </Grid>
+    </div>
   );
 };

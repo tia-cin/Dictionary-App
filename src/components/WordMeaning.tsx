@@ -43,7 +43,7 @@ export const WordMeaning: React.FC<WordMeaningProps> = ({ meanings }) => {
     );
     const [readMore, setReadMore] = React.useState<boolean>(false);
     return (
-      <div className="w-200">
+      <div className="w-400">
         <p>{text}</p>
         <p>"{example ? example : "No Example"}"</p>
         <span
@@ -94,7 +94,16 @@ export const WordMeaning: React.FC<WordMeaningProps> = ({ meanings }) => {
       <div className="flex justify-evenly my-5 mb-8">
         {meanings &&
           meanings.map((p, i) => (
-            <button onClick={() => setSection(p)}>{i}</button>
+            <button
+              onClick={() => setSection(p)}
+              className={`text-2xl px-3 py-1 rounded-full ${
+                section === p
+                  ? "bg-blue-300 text-white"
+                  : "text-blue-300 bg-white"
+              }`}
+            >
+              {i}
+            </button>
           ))}
       </div>
     </div>

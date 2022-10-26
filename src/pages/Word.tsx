@@ -23,17 +23,21 @@ export const WordPage: React.FC = () => {
   }, [dispatch, wordId]);
 
   return (
-    <div className="h-screen pt-20">
+    <div className="h-screen pt-20 overflow-hidden">
       {detail && (
         <div className="flex flex-col items-center justify-center">
           <WordTitle title={detail[0].word} phonetic={detail[0].phonetic} />
           <div>
-            <div className="flex justify-around my-5">
+            <div className="flex justify-around my-5 w-500">
               {["meanings", "phonetics", "credits"].map((item, i) => (
                 <button
                   key={i}
                   onClick={() => setToggle(item)}
-                  className="bg-blue-300 rounded px-2 text-white"
+                  className={`rounded px-4 py-2 text-lg font-medium ${
+                    toggle === item
+                      ? "bg-white text-blue-300"
+                      : "bg-blue-300 text-white"
+                  }`}
                 >
                   {item.toLocaleUpperCase()}
                 </button>
