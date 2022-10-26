@@ -15,12 +15,17 @@ interface CardProps {
 
 export const WordCard: React.FC<CardProps> = ({ word }) => {
   return (
-    <Card sx={{ minWidth: 200 }}>
+    <Card sx={{ minWidth: 300, margin: ".5em" }}>
       <CardContent>
-        <Typography variant="h4">{word.word}</Typography>
-        <Typography variant="h5">
-          {word.phonetic ? word.phonetic : null}
-        </Typography>
+        <p className="font-bold text-3xl">
+          {word.word}
+          <span className="text-base font-medium italic ml-2">
+            {word.phonetic ? word.phonetic : null}
+          </span>
+        </p>
+        <p className="w-300 mt-3">
+          {word.meanings[0].definitions[0].definition}
+        </p>
       </CardContent>
       <CardActions>
         <Link to={`/definitions/${word.id}`}>

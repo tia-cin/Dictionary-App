@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { SearchBar, WordCard } from "../components";
 import { RootReducer } from "../redux/store";
 import { Grid, Alert, AlertTitle } from "@mui/material";
-import { WordAlert, WordData } from "../types";
 
 export const Home: React.FC = () => {
   const { words, failedMessage } = useSelector((state: RootReducer) => state);
@@ -17,30 +16,25 @@ export const Home: React.FC = () => {
         </p>
       </div>
       <SearchBar />
-      {words.length > 0 && (
-        <Grid
-          item
-          container
-          alignItems="center"
-          justifyContent="space-evenly"
-          sx={{ my: 5 }}
-        >
-          {words?.map((w, i) => (
-            <Grid item key={i}>
+      <div className="flex items-center justify-center">
+        {words.length > 0 && (
+          <div className="flex md:flex-col justify-around">
+            {words?.map((w, i) => (
               <WordCard key={i} word={w} />
-            </Grid>
-          ))}
-        </Grid>
-      )}
-      {failedMessage && (
-        <Grid item container direction="column" alignItems="center">
-          <Alert severity="error" sx={{ my: "2em" }}>
-            <AlertTitle>{failedMessage.title}</AlertTitle>
-            {failedMessage.message}
-            {failedMessage.resolution}
-          </Alert>
-        </Grid>
-      )}
+            ))}
+          </div>
+        )}
+        {failedMessage && (
+          <div className="w-400 ">
+            <Alert severity="error" sx={{ my: "2em" }}>
+              <AlertTitle>{failedMessage.title}</AlertTitle>
+              <p className="text-base">{failedMessage.message}</p>
+              <span className="text-base font-medium">Recomendation: </span>
+              <span className="text-base">{failedMessage.resolution}</span>
+            </Alert>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

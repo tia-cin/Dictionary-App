@@ -15,6 +15,7 @@ export const rootReducer = (
     case SEARCH_WORD:
       return {
         ...state,
+        failedMessage: null,
         words: action.payload,
       };
     case GET_DETAIL:
