@@ -4,7 +4,7 @@ import { Button, Grid } from "@mui/material";
 
 export const Navbar: React.FC = () => {
   return (
-    <nav className="fixed w-full">
+    <nav className="fixed w-full top-0">
       <Grid
         container
         justifyContent="space-between"
