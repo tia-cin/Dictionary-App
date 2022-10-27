@@ -1,57 +1,40 @@
 import React from "react";
-import { Grid, Typography } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LanguageIcon from "@mui/icons-material/Language";
 
 export const About: React.FC = () => {
   return (
-    <Grid container alignItems="center" direction="column">
-      <Grid
-        item
-        container
-        direction="column"
-        alignItems="center"
-        sx={{ my: "2em" }}
-      >
-        <Typography variant="h2">About the App</Typography>
-        <Typography variant="subtitle1">
+    <div className="h-screen pt-20">
+      <div className="text-center my-5 mb-8">
+        <h1 className="font-bold text-2xl">About the App</h1>
+        <p className="px-20 mx-20 text-lg">
           Enter a word in our searcher and explore all possible definitions
-          <br />
           about your request. Detailed information about the word is displayes
-          <br />
           such as Definitions, Dynamic examples, phonetic, synonyms and
-          <br />
           antonyms.
-        </Typography>
-      </Grid>
-      <Grid item sx={{ my: "2em" }}>
-        <Typography variant="h2">About the API</Typography>
-        <Grid container justifyContent="center">
-          <a
-            href="https://github.com/meetDeveloper/googleDictionaryAPI"
-            style={{ textDecoration: "none", margin: "1em" }}
-          >
-            <GitHubIcon sx={{ color: "black", fontSize: "3em" }} />
-          </a>
-          <a
-            href="https://dictionaryapi.dev/"
-            style={{ textDecoration: "none", margin: "1em" }}
-          >
-            <LanguageIcon sx={{ color: "black", fontSize: "3em" }} />
-          </a>
-        </Grid>
-      </Grid>
-      <Grid item sx={{ my: "1em" }}>
-        <Typography variant="h2">About the Developer</Typography>
-        <Grid container justifyContent="center">
-          <a
-            href="https://github.com/tia-cin"
-            style={{ textDecoration: "none", margin: "1em" }}
-          >
-            <GitHubIcon sx={{ color: "black", fontSize: "3em" }} />
-          </a>
-        </Grid>
-      </Grid>
-    </Grid>
+        </p>
+      </div>
+      <div className="flex justify-center">
+        <div className="text-center my-5 mx-8">
+          <h2 className="font-semibold text-2xl">About the API</h2>
+          <div>
+            <a href="https://github.com/meetDeveloper/googleDictionaryAPI">
+              <GitHubIcon sx={{ color: "black", fontSize: "3em" }} />
+            </a>
+            <a href="https://dictionaryapi.dev/">
+              <LanguageIcon sx={{ color: "black", fontSize: "3em" }} />
+            </a>
+          </div>
+        </div>
+        <div className="text-center my-5 mx-8">
+          <h2 className="font-semibold text-2xl">About the Developer</h2>
+          <div>
+            <a href="https://github.com/tia-cin">
+              <GitHubIcon sx={{ color: "black", fontSize: "3em" }} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
