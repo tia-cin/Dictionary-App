@@ -1,6 +1,5 @@
 import React from "react";
 import { Meanings } from "../types";
-import { Grid, Typography } from "@mui/material";
 
 interface WordMeaningProps {
   meanings: Meanings[];
@@ -13,17 +12,17 @@ export const WordMeaning: React.FC<WordMeaningProps> = ({ meanings }) => {
     title,
   }) => {
     return (
-      <div>
+      <div className="grid grid-cols-2">
         <Titles title={title} />
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-3 gap-3 w-200">
           {array.length ? (
             array.map((a, i) => (
-              <p key={i} className="">
+              <p key={i} className="text-md font-normal">
                 {a}
               </p>
             ))
           ) : (
-            <p>No {title} found</p>
+            <p className="text-md font-normal w-200">No {title} found</p>
           )}
         </div>
       </div>
@@ -31,33 +30,18 @@ export const WordMeaning: React.FC<WordMeaningProps> = ({ meanings }) => {
   };
 
   const Definitions: React.FC<{
-    definition: string;
-    example: string | undefined;
-  }> = ({ definition, example }) => {
-    const [text, setText] = React.useState<string>(
-      definition.length <= 20 ? definition : definition.slice(0, 20)
-    );
-    const [readMore, setReadMore] = React.useState<boolean>(false);
+    definition: Array<any>;
+  }> = ({ definition }) => {
     return (
-      <div className="w-400">
-        <p>
-          {text}
-          <span
-            className="font-semibold"
-            onClick={() => {
-              if (!readMore) {
-                setText(definition);
-                setReadMore(true);
-              } else {
-                setText(definition.slice(0, 20));
-                setReadMore(false);
-              }
-            }}
-          >
-            {readMore ? " Show less" : " Read more"}
-          </span>
-        </p>
-        <p>"{example ? example : "No Example"}"</p>
+      <div className="w-200 h-full my-2">
+        {definition.map((item, i) => (
+          <div key={i}>
+            <p className="text-md font-normal">{item.definition}</p>
+            <span className="italic text-md font-light">
+              "{item.example ? item.example : "No example"}"
+            </span>
+          </div>
+        ))}
       </div>
     );
   };
@@ -68,29 +52,27 @@ export const WordMeaning: React.FC<WordMeaningProps> = ({ meanings }) => {
 
   return (
     <div>
-      <div className="flex">
-        <div>
+      <div>
+        <div className="grid grid-cols-2">
           <Titles title="Part of Speech" />
-          <p>{section.partOfSpeech}</p>
+          <div className="w-100 h-100">
+            <p className="text-md font-normal">{section.partOfSpeech}</p>
+          </div>
+        </div>
+        <div className="grid grid-cols-2">
           <Titles title="Definitions" />
-          {section.definitions &&
-            section.definitions.map((d: any, i: number) => (
-              <Definitions
-                definition={d.definition}
-                example={d.example}
-                key={i}
-              />
-            ))}
+          {section.definitions && (
+            <Definitions definition={section.definitions} />
+          )}
         </div>
-        <div>
-          <Buttons array={section.synonyms} title="Synonyms" />
-          <Buttons array={section.antonyms} title="Antonyms" />
-        </div>
+        <Buttons array={section.synonyms} title="Synonyms" />
+        <Buttons array={section.antonyms} title="Antonyms" />
       </div>
       <div className="flex justify-evenly my-5 mb-8">
         {meanings &&
           meanings.map((p, i) => (
             <button
+              key={i}
               onClick={() => setSection(p)}
               className={`text-2xl px-3 py-1 rounded-full ${
                 section === p

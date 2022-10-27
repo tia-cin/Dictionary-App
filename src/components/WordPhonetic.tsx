@@ -1,6 +1,5 @@
 import React from "react";
 import { Phonetics } from "../types";
-import { Typography, Grid } from "@mui/material";
 
 interface WordPhoneticsProps {
   phonetics: Phonetics[];
@@ -9,45 +8,25 @@ interface WordPhoneticsProps {
 export const WordPhonetic: React.FC<WordPhoneticsProps> = ({ phonetics }) => {
   return (
     <div className="w-400">
-      <Grid item container>
-        <Grid item container justifyContent="center">
-          <Typography variant="h2">Phonetic</Typography>
-        </Grid>
-        <Grid item container justifyContent="space-around" sx={{ my: "2em" }}>
-          {phonetics &&
-            phonetics.map((p, i) => {
-              return (
-                <Grid
-                  item
-                  key={i}
-                  sx={{
-                    my: ".5em",
-                    mx: "2em",
-                    borderColor: "#191919",
-                    border: "1px solid",
-                    borderRadius: "2em",
-                    padding: "1em",
-                  }}
-                >
-                  <div>
-                    <Typography variant="subtitle1">{p.text}</Typography>
-                    {p.audio && <audio src={p.audio} controls></audio>}
+      <div className="flex flex-col items-center">
+        {phonetics &&
+          phonetics.map((p, i) => {
+            return (
+              <div className="flex items-end justify-around my-3" key={i}>
+                <div>
+                  <p className="text-lg font-semibold">{p.text}</p>
+                  {p.audio && <audio src={p.audio} controls></audio>}
+                </div>
+                {p.license && (
+                  <div className="ml-5 mb-2">
+                    <p className="text-md font-semibold">License</p>
+                    <a href={p.license.url}>{p.license.name}</a>
                   </div>
-                  {p.license && (
-                    <div>
-                      <Typography variant="subtitle2">
-                        License
-                        <Typography variant="caption" sx={{ mx: ".5em" }}>
-                          <a href={p.license.url}>{p.license.name}</a>
-                        </Typography>
-                      </Typography>
-                    </div>
-                  )}
-                </Grid>
-              );
-            })}
-        </Grid>
-      </Grid>
+                )}
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 };

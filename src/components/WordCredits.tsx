@@ -1,6 +1,5 @@
 import React from "react";
 import { License } from "../types";
-import { Grid, List, ListItem, Typography } from "@mui/material";
 
 interface WordCreditsProps {
   license: License;
@@ -13,33 +12,31 @@ export const WordCredits: React.FC<WordCreditsProps> = ({
 }) => {
   return (
     <div className="w-400">
-      <Grid item container>
-        {license && sourceUrls && (
-          <Grid item container justifyContent="space-around" sx={{ my: "2em" }}>
-            {license && (
-              <Grid item>
-                <Typography variant="subtitle1">License</Typography>
-                <a href={license.url}>
-                  <p>{license.name}</p>
-                </a>
-              </Grid>
-            )}
-            {sourceUrls && (
-              <Grid item>
-                <Typography variant="subtitle1">Sourse URLs:</Typography>
-                <List>
-                  {sourceUrls &&
-                    sourceUrls.map((u, i) => (
-                      <ListItem key={i}>
-                        <a href={u}>{u}</a>
-                      </ListItem>
-                    ))}
-                </List>
-              </Grid>
-            )}
-          </Grid>
-        )}
-      </Grid>
+      {license && sourceUrls && (
+        <div className="flex justify-center">
+          {license && (
+            <div className="mx-3">
+              <p className="text-lg font-semibold">License</p>
+              <a href={license.url}>{license.name}</a>
+            </div>
+          )}
+          {sourceUrls && (
+            <div className="mx-3">
+              <p className="text-lg font-semibold">Sourse URLs:</p>
+              <ul className="flex flex-col">
+                {sourceUrls &&
+                  sourceUrls.map((u, i) => (
+                    <li key={i}>
+                      <a href={u} className="text-blue-300">
+                        {u}
+                      </a>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };
